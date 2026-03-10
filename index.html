@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>5W2H Trillium</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="pt-BR">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#b8f000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Trillium 5W2H</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --p4:#061520;--p3:#0a2030;--p2:#0f2d42;--p1:#163a54;--p0:#1a4a5c;
-  --green:#b8f000;--green2:#a0d400;--greengl:#b8f00033;
-  --teal:#1a4a5c;--white:#fff;--gray:#7fa8b8;--gray2:#c8dde5;
+  --p4:#0d0d0d;--p3:#111111;--p2:#1a1a1a;--p1:#232323;--p0:#2c2c2c;
+  --green:#b8f000;--green2:#b8f000;--greengl:#b8f00033;
+  --teal:#0a1200;--white:#fff;--gray:#7fa8b8;--gray2:#c8dde5;
   --danger:#ef4444;--warn:#f59e0b;--purple:#a78bfa;--sky:#38bdf8;
   --success:#4ade80;
 }
@@ -123,7 +125,7 @@ body{font-family:'Inter',sans-serif;background:var(--p4);min-height:100vh;color:
 .proj-menu-item{padding-left:20px;font-size:12px}
 .proj-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .sc-label{font-size:9px;padding:1px 6px;border-radius:99px;font-weight:700;letter-spacing:.5px;margin-left:auto;white-space:nowrap}
-.sc-op{background:#1a4a5c22;color:var(--sky);border:1px solid #38bdf833}
+.sc-op{background:#0a120022;color:var(--sky);border:1px solid #38bdf833}
 .sc-fin{background:#f59e0b22;color:var(--warn);border:1px solid #f59e0b33}
 .sc-all{background:#b8f00022;color:var(--green);border:1px solid #b8f00033}
 .sidebar-footer{padding:12px 18px;border-top:1px solid #b8f00015}
@@ -135,7 +137,7 @@ body{font-family:'Inter',sans-serif;background:var(--p4);min-height:100vh;color:
 .topbar{background:var(--p2);border-bottom:1px solid #b8f00015;padding:13px 22px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
 .topbar-title{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;flex:1}
 .topbar-badge{padding:4px 12px;border-radius:99px;font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.5px}
-.badge-op{background:#0a2030;color:var(--sky);border:1px solid #38bdf833}
+.badge-op{background:#0a1200;color:var(--sky);border:1px solid #38bdf833}
 .badge-fin{background:#78350f;color:var(--warn);border:1px solid #f59e0b44}
 .badge-senior{background:#2a1f00;color:var(--warn);border:1px solid #f59e0b44}
 .content{padding:22px}
@@ -150,7 +152,7 @@ body{font-family:'Inter',sans-serif;background:var(--p4);min-height:100vh;color:
 .scenario-tabs{display:flex;gap:8px;margin-bottom:18px}
 .sc-tab{padding:7px 16px;border-radius:99px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid transparent;transition:all .2s;font-family:'Montserrat',sans-serif}
 .sc-tab.op{border-color:#38bdf844;color:var(--gray)}
-.sc-tab.op.active,.sc-tab.op:hover{background:#0a2030;color:var(--sky);border-color:var(--sky)}
+.sc-tab.op.active,.sc-tab.op:hover{background:#0a1200;color:var(--sky);border-color:var(--sky)}
 .sc-tab.fin{border-color:#f59e0b44;color:var(--gray)}
 .sc-tab.fin.active,.sc-tab.fin:hover{background:#78350f;color:var(--warn);border-color:var(--warn)}
 
@@ -206,7 +208,7 @@ tbody tr:hover{background:#2a2000}
 td{padding:8px 9px;font-size:11px;color:var(--gray2);vertical-align:top;max-width:155px;word-break:break-word;border-right:1px solid #b8f00010}
 td:last-child{border-right:none}
 td.editable{cursor:text}
-td.editable:hover{background:#f5a8000a;color:#fff}
+td.editable:hover{background:#b8f0000a;color:#fff}
 td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:72px}
 .ss{background:var(--p4);border-radius:6px;padding:3px 5px;font-weight:700;font-size:11px;cursor:pointer;width:100%;font-family:'Montserrat',sans-serif;outline:none}
 .sbar-wrap{margin-top:4px;background:#ffffff0d;border-radius:99px;height:4px;overflow:hidden}
@@ -216,8 +218,8 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
 .btn:hover{transform:scale(1.07)}
 .btn-clr{background:var(--p1);color:var(--sky);border:1px solid #38bdf833}
 .btn-dr{background:#1a0000;color:var(--danger);border:1px solid #ef444433}
-.btn-primary{background:var(--green);color:var(--p4);border:none;border-radius:8px;padding:9px 18px;font-size:12px;font-weight:800;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:.5px;box-shadow:0 0 14px #f5a80030;transition:all .2s}
-.btn-primary:hover{transform:scale(1.03);box-shadow:0 0 24px #f5a80060}
+.btn-primary{background:var(--green);color:var(--p4);border:none;border-radius:8px;padding:9px 18px;font-size:12px;font-weight:800;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:.5px;box-shadow:0 0 14px #b8f00030;transition:all .2s}
+.btn-primary:hover{transform:scale(1.03);box-shadow:0 0 24px #b8f00060}
 .btn-danger{background:var(--danger);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:12px;font-weight:700;cursor:pointer}
 .btn-secondary{background:var(--p1);color:var(--gray2);border:1px solid #b8f00020;border-radius:8px;padding:9px 18px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-secondary:hover{border-color:var(--green);color:var(--green)}
@@ -258,17 +260,312 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
 /* ── MODALS ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);align-items:center;justify-content:center;z-index:200}
 .modal-overlay.active{display:flex}
-.modal{background:var(--p2);border:1px solid #f5a80030;border-radius:16px;padding:30px;max-width:400px;width:92%;box-shadow:0 0 60px #b8f00018;animation:fadeIn .25s ease}
+.modal{background:var(--p2);border:1px solid #b8f00030;border-radius:16px;padding:30px;max-width:400px;width:92%;box-shadow:0 0 60px #b8f00018;animation:fadeIn .25s ease}
 .modal-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:var(--white);margin-bottom:5px}
 .modal-sub{color:var(--gray);font-size:13px;margin-bottom:22px}
 .modal-icon{font-size:38px;margin-bottom:10px}
 .modal-btns{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
-</style>
+
+/* ══ MOBILE FIX ══════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* Auth screens: scroll livre */
+  #screen-login,
+  #screen-register,
+  #screen-edit-profile{
+    min-height:100vh !important;
+    height:auto !important;
+    overflow-y:auto !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    padding:20px 0 40px !important;
+  }
+  .auth-card{
+    width:95% !important;
+    max-width:100% !important;
+    padding:24px 16px !important;
+    margin:0 auto !important;
+  }
+
+  /* App screen */
+  #screen-app{
+    flex-direction:column !important;
+    width:100vw !important;
+    height:100vh !important;
+    overflow:hidden !important;
+  }
+
+  /* Sidebar → topo */
+  .sidebar{
+    order:-1 !important;
+    width:100% !important;
+    min-width:unset !important;
+    height:auto !important;
+    max-height:unset !important;
+    position:static !important;
+    flex-direction:column !important;
+    border-right:none !important;
+    border-bottom:1px solid #b8f00022 !important;
+    overflow:visible !important;
+    flex-shrink:0 !important;
+  }
+  .sidebar-logo{display:none !important}
+  .sidebar-section{display:none !important}
+  #sidebar-projs{display:none !important}
+  .sidebar-user{
+    flex-direction:row !important;
+    padding:6px 10px !important;
+    gap:8px !important;
+    border-bottom:1px solid #b8f00015 !important;
+  }
+  .user-avatar{width:28px !important;height:28px !important;font-size:10px !important}
+  .user-info{flex-direction:row !important;align-items:center !important;gap:8px !important}
+  #s-name{font-size:11px !important}
+  #s-role{font-size:9px !important}
+  .sidebar-menu{
+    display:flex !important;flex-direction:row !important;
+    overflow-x:auto !important;gap:4px !important;
+    padding:5px 8px !important;
+    border-bottom:1px solid #b8f00015 !important;
+    scrollbar-width:none !important;
+  }
+  .sidebar-menu::-webkit-scrollbar{display:none !important}
+  .menu-item{
+    white-space:nowrap !important;flex-shrink:0 !important;
+    font-size:10px !important;padding:5px 12px !important;
+    border-radius:99px !important;
+  }
+  .sidebar-footer{
+    display:flex !important;flex-direction:row !important;
+    flex-wrap:wrap !important;gap:4px !important;
+    padding:5px 8px !important;
+  }
+  .sidebar-footer button,.btn-logout,#sidebar-senior-btn button{
+    width:auto !important;font-size:9px !important;
+    padding:4px 9px !important;white-space:nowrap !important;margin:0 !important;
+  }
+  #sidebar-senior-btn{margin-bottom:0 !important;display:block !important}
+
+  /* Main content rola */
+  .main{
+    flex:1 1 0 !important;
+    overflow-y:auto !important;
+    min-height:0 !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  .topbar{padding:8px 10px !important;flex-wrap:wrap !important;gap:4px !important}
+  #tb-title{font-size:12px !important}
+  .content{padding:10px !important}
+  .view-header{flex-wrap:wrap !important;gap:6px !important;padding:8px 10px !important}
+
+  /* Tabelas scroll horizontal */
+  .table-wrap{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important}
+  table{min-width:580px !important}
+  th{font-size:9px !important;padding:7px 5px !important}
+  td{font-size:10px !important;padding:5px 4px !important}
+
+  /* Cronograma */
+  .gantt-wrap{overflow-x:auto !important;-webkit-overflow-scrolling:touch !important}
+  #cron-table{min-width:540px !important}
+  .gantt-toolbar{flex-wrap:wrap !important;gap:6px !important;padding:10px !important}
+
+  /* Modais bottom sheet */
+  .modal-overlay{align-items:flex-end !important;padding:0 !important}
+  .modal{
+    width:100% !important;max-width:100% !important;
+    border-radius:16px 16px 0 0 !important;
+    max-height:88vh !important;overflow-y:auto !important;margin:0 !important;
+  }
+
+  /* Dashboard */
+  .projects-grid{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  #ep-body-cols{grid-template-columns:1fr !important}
+  .view-tabs{overflow-x:auto !important;flex-wrap:nowrap !important}
+  .view-tab{white-space:nowrap !important;font-size:9px !important;padding:5px 10px !important}
+}
+@media(max-width:420px){
+  .projects-grid{grid-template-columns:1fr !important}
+}</style>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  (function(){
+    var FB_CFG = {
+      apiKey:            "AIzaSyBY5LeyMDQj28MJYbVHmtggtzzclGYgHCk",
+      authDomain:        "w2h-lion.firebaseapp.com",
+      projectId:         "w2h-lion",
+      storageBucket:     "w2h-lion.firebasestorage.app",
+      messagingSenderId: "611200932059",
+      appId:             "1:611200932059:web:b110d1743f4c4755bed4fe"
+    };
+    var APP_DOC = 'trilium_5w2h';
+    var DB_K    = 'trilium_db';
+    var PH_K    = 'trilium_photos';
+    var _ref = null;
+    var _tabId = 'tab_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36);
+    var _lastSavedId = '';
+    var _pollTimer = null;
+
+    function _applyRemote(remote, photos) {
+      db.users       = remote.users       || db.users;
+      db.projects    = remote.projects    || db.projects;
+      db.nextProjId  = remote.nextProjId  || db.nextProjId;
+      db.nextRowId   = remote.nextRowId   || db.nextRowId;
+      db.nextGanttId = remote.nextGanttId || db.nextGanttId;
+      db.saveId      = remote.saveId      || '';
+      db.lastSaved   = remote.lastSaved   || 0;
+      if(photos){
+        db.users.forEach(function(u){if(photos[u.user])u.photo=photos[u.user];});
+      }
+      try{
+        var cl=JSON.parse(JSON.stringify(db));
+        cl.users.forEach(function(u){delete u.photo;});
+        localStorage.setItem(DB_K, JSON.stringify(cl));
+      }catch(e){}
+    }
+
+    function _syncUI(){
+      if(typeof session==='undefined' || !session.user) return;
+      try{
+        if(typeof renderSidebar==='function') renderSidebar();
+        if(session.projId){
+          var _p = db.projects.find(function(x){return x.id===session.projId;});
+          if(_p){
+            if(session.view==='gantt' && typeof renderGantt==='function') renderGantt(_p);
+            else if(typeof renderProject==='function') renderProject(_p);
+          }
+        } else {
+          if(typeof showDashboard==='function') showDashboard();
+        }
+        if(typeof showToast==='function') showToast('☁️ Sincronizado!');
+      }catch(ex){ console.warn('[FB] syncUI error', ex); }
+    }
+
+    function _isOwnSave(saveId){
+      return saveId && (saveId === _lastSavedId || saveId === (db.saveId||''));
+    }
+
+    function _init(){
+      try{
+        if(!firebase.apps.length) firebase.initializeApp(FB_CFG);
+        var fs = firebase.firestore();
+        try{ fs.settings({ experimentalForceLongPolling: true, merge: true }); }catch(e){}
+        _ref = fs.collection('apps').doc(APP_DOC);
+        console.log('[FB] init ✅', APP_DOC, '| tabId:', _tabId);
+
+        _ref.onSnapshot(function(snap){
+          if(!snap) return;
+          var exists = (typeof snap.exists==='function') ? snap.exists() : snap.exists;
+          if(!exists) return;
+          var d = snap.data();
+          if(!d || !d.db) return;
+          try{
+            var remote = JSON.parse(d.db);
+            if(!remote || !remote.users) return;
+            if(_isOwnSave(remote.saveId||'')){
+              console.log('[FB] snapshot: próprio save, ignorando');
+              return;
+            }
+            console.log('[FB] snapshot: update remoto ✅', remote.saveId);
+            var photos = d.photos ? JSON.parse(d.photos) : null;
+            _applyRemote(remote, photos);
+            _syncUI();
+          }catch(ex){ console.error('[FB] snapshot parse error', ex); }
+        }, function(err){
+          console.warn('[FB] onSnapshot falhou:', err.code, err.message);
+          _startPolling();
+        });
+
+      }catch(e){ console.error('[FB] init error:', e.message); }
+    }
+
+    window._fbSave = function(){
+      if(!_ref){ console.warn('[FB] save: sem ref'); return; }
+      try{
+        var cl = JSON.parse(JSON.stringify(db));
+        cl.users.forEach(function(u){delete u.photo;});
+        var sid = _tabId + '_' + Date.now().toString(36);
+        _lastSavedId = sid;
+        cl.saveId    = sid;
+        cl.lastSaved = Date.now();
+        db.saveId    = sid;
+        db.lastSaved = cl.lastSaved;
+        var photos = {};
+        db.users.forEach(function(u){ if(u.photo) photos[u.user] = u.photo; });
+        try{ localStorage.setItem(PH_K, JSON.stringify(photos)); }catch(e){}
+        _ref.set({ db: JSON.stringify(cl), photos: JSON.stringify(photos), updated: new Date().toISOString() })
+          .then(function(){ console.log('[FB] saved ✅', sid); })
+          .catch(function(e){ console.error('[FB] save error:', e.code, e.message); });
+      }catch(e){ console.error('[FB] save exception:', e); }
+    };
+
+    window._fbLoad = function(cb){
+      if(!_ref){ if(cb) cb(false); return; }
+      _ref.get().then(function(snap){
+        var exists = (typeof snap.exists==='function') ? snap.exists() : snap.exists;
+        if(!exists){ if(cb) cb(false); return; }
+        var d = snap.data();
+        if(!d || !d.db){ if(cb) cb(false); return; }
+        try{
+          var remote = JSON.parse(d.db);
+          if(!remote || !remote.users){ if(cb) cb(false); return; }
+          var photos = d.photos ? JSON.parse(d.photos) : null;
+          _applyRemote(remote, photos);
+          console.log('[FB] load ✅ saveId:', remote.saveId);
+          if(cb) cb(true);
+        }catch(ex){ console.error('[FB] load error', ex); if(cb) cb(false); }
+      }).catch(function(e){ console.error('[FB] load error:', e.code, e.message); if(cb) cb(false); });
+    };
+
+    function _poll(){
+      if(!_ref || typeof session==='undefined' || !session.user) return;
+      _ref.get().then(function(snap){
+        var exists = (typeof snap.exists==='function') ? snap.exists() : snap.exists;
+        if(!exists) return;
+        var d = snap.data();
+        if(!d || !d.db) return;
+        try{
+          var remote = JSON.parse(d.db);
+          if(!remote || !remote.users) return;
+          var remoteId = remote.saveId || '';
+          if(remoteId && remoteId === _lastSavedId) return;
+          if(remoteId && remoteId === (db.saveId||'')) return;
+          console.log('[FB] poll: update ✅', remoteId);
+          _lastSavedId = remoteId;
+          var photos = d.photos ? JSON.parse(d.photos) : null;
+          _applyRemote(remote, photos);
+          _syncUI();
+        }catch(ex){ console.error('[FB] poll error', ex); }
+      }).catch(function(e){ console.warn('[FB] poll error', e.code); });
+    }
+
+    window._startPolling = function(){
+      if(_pollTimer) return;
+      console.log('[FB] polling iniciado (3s)');
+      _pollTimer = setInterval(_poll, 3000);
+    };
+    window._stopPolling = function(){
+      if(_pollTimer){ clearInterval(_pollTimer); _pollTimer=null; }
+    };
+
+    _init();
+  })();
+  </script>
 </head>
 <body>
+  <!-- Firebase loading overlay -->
+  <div id="fb-loading" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:99999;flex-direction:column;align-items:center;justify-content:center;font-family:Montserrat,sans-serif">
+    <div style="font-size:40px;margin-bottom:16px">☁️</div>
+    <div style="color:#f5a800;font-size:16px;font-weight:700;margin-bottom:8px">Sincronizando dados...</div>
+    <div style="color:#888;font-size:12px">Aguarde um momento</div>
+    <div style="margin-top:20px;width:200px;height:4px;background:#222;border-radius:2px;overflow:hidden">
+      <div id="fb-progress" style="height:100%;width:0%;background:#f5a800;transition:width 2s ease;border-radius:2px"></div>
+    </div>
+  </div>
 
 <!-- ══ SCREEN: REGISTER ══ -->
-<div id="screen-register" class="screen active">
+<div id="screen-register" class="screen">
   <div class="auth-card fade-in">
     <div class="auth-logo" style="font-family:Montserrat,sans-serif;font-size:42px;font-weight:900;color:var(--green);letter-spacing:3px;margin-bottom:8px">✦ TRILLIUM</div>
     <div class="auth-title">Plataforma 5W2H</div>
@@ -328,7 +625,7 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
 </div>
 
 <!-- ══ SCREEN: LOGIN ══ -->
-<div id="screen-login" class="screen">
+<div id="screen-login" class="screen active">
   <div class="auth-card fade-in">
     <div class="auth-logo" style="font-family:Montserrat,sans-serif;font-size:42px;font-weight:900;color:var(--green);letter-spacing:3px;margin-bottom:8px">✦ TRILLIUM</div>
     <div class="auth-title">Plataforma 5W2H</div>
@@ -374,7 +671,8 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
           <span id="pending-badge" style="display:none;position:absolute;top:-6px;right:-6px;background:var(--danger);color:#fff;border-radius:99px;width:18px;height:18px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif"></span>
         </button>
       </div>
-            <div style="display:flex;gap:6px;margin-bottom:8px">
+            <button onclick="openFirebaseConfig()" style="width:100%;background:var(--p2);color:#4ade80;border:1px solid #4ade8033;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif;margin-bottom:6px;text-align:left" id="firebase-btn">☁️ Sincronização na Nuvem</button>
+      <div style="display:flex;gap:6px;margin-bottom:8px">
         <button onclick="exportarDados()" style="flex:1;background:#1a2a00;color:#b8f000;border:1px solid #b8f00033;border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif">📤 Exportar</button>
         <button onclick="importarDados()" style="flex:1;background:#001a1a;color:#38d9d9;border:1px solid #38d9d933;border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif">📥 Importar</button>
       </div>
@@ -387,7 +685,7 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
       <div class="topbar-title" id="tb-title">Dashboard</div>
       <div id="tb-badge"></div>
     </div>
-    <div class="content" id="main-content"></div>
+    <div class="content" id="main-content" class="app-main"></div>
   </main>
 </div>
 
@@ -452,6 +750,136 @@ td.td-act{vertical-align:middle;text-align:center;white-space:nowrap;min-width:7
   </div>
 </div>
 
+
+
+<!-- ══ MODAL: PAINEL SÊNIOR ══ -->
+<div class="modal-overlay" id="modal-senior-panel" style="z-index:300">
+  <div class="modal" style="max-width:660px;width:96%;max-height:88vh;overflow-y:auto;padding:24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div>
+        <div class="modal-title" style="margin-bottom:2px">👑 Painel Sênior</div>
+        <div style="font-size:11px;color:var(--gray)">Gerencie usuários e acesso a projetos</div>
+      </div>
+      <button onclick="closeModal('modal-senior-panel')" style="background:var(--p3);border:1px solid #b8f00020;color:var(--gray);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px">✕</button>
+    </div>
+
+    <!-- TABS -->
+    <div style="display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid #b8f00022;margin-bottom:18px;flex-wrap:wrap">
+      <button id="sp-tab-users" class="view-tab active" onclick="spShowTab('users')" style="flex:1;min-width:110px">👤 Pendentes</button>
+      <button id="sp-tab-approved" class="view-tab" onclick="spShowTab('approved')" style="flex:1;min-width:110px">✅ Aprovados</button>
+      <button id="sp-tab-projects" class="view-tab" onclick="spShowTab('projects')" style="flex:1;min-width:110px">📁 Projetos</button>
+      <button id="sp-tab-all" class="view-tab" onclick="spShowTab('all')" style="flex:1;min-width:110px">👥 Colaboradores</button>
+    </div>
+
+    <!-- TAB: PENDING USERS -->
+    <div id="sp-panel-users">
+      <div id="sp-pending-list"></div>
+    </div>
+
+    <!-- TAB: APPROVED USERS -->
+    <div id="sp-panel-approved" style="display:none">
+      <div id="sp-approved-list"></div>
+    </div>
+
+    <!-- TAB: PROJECT ACCESS -->
+    <div id="sp-panel-projects" style="display:none">
+      <div id="sp-projects-list"></div>
+    </div>
+
+    <!-- TAB: ALL COLLABORATORS -->
+    <div id="sp-panel-all" style="display:none">
+      <div id="sp-all-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: EDIT PROFILE ══ -->
+<div id="screen-edit-profile" class="screen">
+  <div class="auth-card fade-in">
+    <div class="auth-logo" style="font-family:Montserrat,sans-serif;font-size:42px;font-weight:900;color:var(--green);letter-spacing:3px;margin-bottom:8px">✦ TRILLIUM</div>
+    <div class="auth-title">Plataforma 5W2H</div>
+    <div class="auth-sub">LION · Editar Perfil</div>
+
+    <!-- Photo upload -->
+    <div class="photo-upload-wrap">
+      <div class="photo-preview" onclick="document.getElementById('ep-photo-input').click()" title="Clique para trocar foto">
+        <span id="ep-photo-icon" style="display:none">📷</span>
+        <span id="ep-photo-initial" style="font-size:34px;font-weight:800;color:var(--warn)">U</span>
+        <img id="ep-photo-img" src="" alt="" style="display:none">
+        <div class="photo-overlay">✏️</div>
+      </div>
+      <div class="photo-label">Foto de Perfil</div>
+      <div class="photo-hint">Clique no círculo ou no botão abaixo</div>
+      <input type="file" id="ep-photo-input" accept="image/*" onchange="epLoadPhoto(this)" style="display:block;width:100%;opacity:0;height:0;overflow:hidden">
+      <button type="button" onclick="document.getElementById('ep-photo-input').click()" style="background:var(--p3);color:var(--green);border:1.5px solid #b8f00044;border-radius:8px;padding:6px 18px;font-size:11px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:.5px;margin-top:2px">📁 TROCAR FOTO</button>
+    </div>
+
+    <div class="field"><label>Nome Completo</label><input id="ep-nome" type="text" placeholder="Seu nome completo"></div>
+    <div class="field"><label>Usuário (login)</label><input id="ep-user" type="text" placeholder="nome_usuario"></div>
+    <div class="field"><label>Perfil de Acesso</label>
+      <select id="ep-perfil" style="width:100%;background:var(--p3);color:#fff;border:1.5px solid #f5a80030;border-radius:10px;padding:11px 14px;font-size:13px;font-family:Montserrat,sans-serif;outline:none">
+        <option value="op">🔵 Operacional</option>
+        <option value="fin">💰 Financeiro</option>
+      </select>
+    </div>
+    <div class="field"><label>Nova Senha <span style="color:var(--gray);font-weight:400">(deixe vazio para não alterar)</span></label><input id="ep-pass" type="password" placeholder="Nova senha"></div>
+    <div class="field"><label>Confirmar Nova Senha</label><input id="ep-pass2" type="password" placeholder="Confirme a nova senha"></div>
+
+    <div id="ep-err" style="display:none;color:var(--danger);font-size:12px;margin-bottom:10px;padding:8px;background:#1a0000;border-radius:8px;border:1px solid #ef444433"></div>
+    <div id="ep-ok" style="display:none;color:#4ade80;font-size:12px;margin-bottom:10px;padding:8px;background:#001a0a;border-radius:8px;border:1px solid #4ade8033">✅ Perfil atualizado com sucesso!</div>
+
+    <button class="btn-auth" onclick="saveProfile()">💾 SALVAR ALTERAÇÕES</button>
+    <div style="margin-top:12px;text-align:center">
+      <span onclick="showScreen('screen-app')" style="color:var(--warn);font-size:12px;cursor:pointer;font-family:Montserrat,sans-serif;font-weight:600">← Voltar sem salvar</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <!-- Modal Firebase Config -->
+  <div class="modal-overlay" id="modal-firebase" style="display:none">
+    <div class="modal" style="max-width:480px">
+      <div class="modal-title">☁️ Sincronização na Nuvem</div>
+      <div class="modal-sub" style="font-size:11px;color:var(--gray);margin-bottom:16px;line-height:1.6">
+        Configure o Firebase para sincronizar dados entre celular, notebook e tablet.<br>
+        <strong style="color:#f5a800">Grátis</strong> até 50.000 leituras/dia · 20.000 gravações/dia
+      </div>
+      <div style="background:#0d1a00;border:1px solid #f5a80033;border-radius:8px;padding:12px;margin-bottom:16px;font-size:10px;color:var(--gray);line-height:1.8">
+        <strong style="color:#f5a800">Como configurar:</strong><br>
+        1. Acesse <a href="https://console.firebase.google.com" target="_blank" style="color:#f5a800">console.firebase.google.com</a><br>
+        2. Crie um projeto gratuito<br>
+        3. Clique em "Web" (&lt;/&gt;) para registrar o app<br>
+        4. Copie o objeto <code style="color:#f5a800">firebaseConfig</code><br>
+        5. Cole cada campo abaixo e salve
+      </div>
+      <div class="field"><label>API KEY</label><input id="fb-apikey" type="text" placeholder="AIzaSy..."></div>
+      <div class="field"><label>AUTH DOMAIN</label><input id="fb-auth" type="text" placeholder="projeto.firebaseapp.com"></div>
+      <div class="field"><label>PROJECT ID</label><input id="fb-proj" type="text" placeholder="meu-projeto-12345"></div>
+      <div class="field"><label>STORAGE BUCKET</label><input id="fb-bucket" type="text" placeholder="projeto.appspot.com"></div>
+      <div class="field"><label>MESSAGING SENDER ID</label><input id="fb-sender" type="text" placeholder="123456789"></div>
+      <div class="field"><label>APP ID</label><input id="fb-appid" type="text" placeholder="1:123456789:web:abc..."></div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button onclick="saveFirebaseConfig()" style="flex:1;background:#f5a800;color:#111;border:none;border-radius:8px;padding:10px;font-weight:800;cursor:pointer;font-family:Montserrat,sans-serif">💾 Salvar e Conectar</button>
+        <button onclick="closeModal('modal-firebase')" style="background:var(--p3);color:var(--gray);border:1px solid #ffffff15;border-radius:8px;padding:10px 16px;cursor:pointer;font-family:Montserrat,sans-serif">Cancelar</button>
+      </div>
+      <div id="fb-status" style="margin-top:10px;font-size:11px;text-align:center;font-family:Montserrat,sans-serif"></div>
+    </div>
+  </div>
+
+  
+
+
+
+
+
+
+
 <script>
 // ══════════════════════════════════════════
 // DATA
@@ -467,7 +895,10 @@ const STATUS = {
 const FIELDS = ['acao','what','why','where','when','who','how','howMuch'];
 
 let db = {
-  users:[{nome:'Admin Sênior',user:'admin',pass:'admin123',role:'senior',status:'approved',photo:null,allowedProjects:'all',empresa:''}],
+  users:[
+    {nome:'Admin Sênior',user:'admin',pass:'admin123',role:'senior',status:'approved',photo:null,allowedProjects:'all',empresa:''},
+    {nome:'Antoneli',user:'antoneli',pass:'150599',role:'senior',status:'approved',photo:null,allowedProjects:'all',empresa:''}
+  ],
   projects:[
     {id:1,name:'Comunicação e Fluxo',sc:'op',cliente:'Acme Corp',allowedUsers:'all',rows:[
       {id:1,acao:'Comunicação Obrigatória',what:'Implantar comunicação formal de divergências.',why:'Evitar retrabalho.',where:'PCP + Almoxarifado',when:'Imediato',who:'João Rosalvo',how:'Padronizar mensagem diária.',howMuch:'Sem custo',status:25},
@@ -492,26 +923,21 @@ let session = {user:null, projId:null, view:'5w2h', dashSc:'op', delProjId:null,
 // DB PERSISTENCE
 // ══════════════════════════════════════════
 function saveDB(){
+  // Local save
   try{
-    // Save photos separately to avoid quota issues with large base64 images
     const photos={};
     db.users.forEach(u=>{if(u.photo){photos[u.user]=u.photo;}});
-    try{localStorage.setItem('lion_photos',JSON.stringify(photos));}catch(e){console.warn('saveDB photos error',e);}
-
-    // Save DB without photos to stay within quota
+    try{localStorage.setItem('trilium_photos',JSON.stringify(photos));}catch(e){}
     const dbClean=JSON.parse(JSON.stringify(db));
     dbClean.users.forEach(u=>{delete u.photo;});
-    localStorage.setItem('lion_db',JSON.stringify(dbClean));
-  }catch(e){
-    console.error('saveDB error',e);
-    // Try saving without photos at all as fallback
-    try{
-      const dbClean=JSON.parse(JSON.stringify(db));
-      dbClean.users.forEach(u=>{delete u.photo;});
-      localStorage.setItem('lion_db',JSON.stringify(dbClean));
-    }catch(e2){console.error('saveDB fallback error',e2);}
-  }
+    localStorage.setItem('trilium_db',JSON.stringify(dbClean));
+  }catch(e){ console.error('saveDB local error',e); }
+  // Cloud save — always try, independent of local
+  try{
+    if(window._fbSave){ window._fbSave(); }
+  }catch(e){ console.warn('saveDB cloud error',e); }
 }
+
 function loadDB(){
   try{
     const s=localStorage.getItem('lion_db');
@@ -532,6 +958,7 @@ function loadDB(){
   }catch(e){localStorage.removeItem('lion_db');}
 }
 loadDB();
+window.db = db; // expose for Firebase
 
 // ══════════════════════════════════════════
 // AUTH HELPERS
@@ -572,10 +999,10 @@ function doRegister(){
   const err=document.getElementById('r-error');
   const ok=document.getElementById('r-success');
   err.style.display='none';ok.style.display='none';
-  if(!nome||!user||!pass){showErr(err,'Preencha todos os campos.');return;}
+  const userSave=user.toLowerCase().trim();if(!nome||!userSave||!pass){showErr(err,'Preencha todos os campos.');return;}
   if(pass.length<4){showErr(err,'Senha deve ter mínimo 4 caracteres.');return;}
   if(pass!==pass2){showErr(err,'As senhas não coincidem.');return;}
-  if(db.users.find(u=>u.user===user)){showErr(err,'Usuário já existe. Escolha outro.');return;}
+  if(db.users.find(u=>u.user===userSave)){showErr(err,'Usuário já existe. Escolha outro.');return;}
   if(isSenior&&special!==SENIOR_KEY){showErr(err,'Senha especial sênior incorreta.');return;}
   if(role==='cli'&&!document.getElementById('r-empresa').value.trim()){showErr(err,'Informe o nome da empresa para perfil Cliente.');return;}
   const finalRole=isSenior?'senior':role;
@@ -584,7 +1011,7 @@ function doRegister(){
   // Sênior aprovado automaticamente; todos os outros ficam PENDENTES até aprovação do Sênior
   const newStatus = finalRole==='senior'?'approved':'pending';
   const empresa=finalRole==='cli'?(document.getElementById('r-empresa')?document.getElementById('r-empresa').value.trim():''):'';
-  db.users.push({nome,user,pass,role:finalRole,photo:hasPhoto?photo:null,status:newStatus,allowedProjects:'none',empresa});
+  db.users.push({nome,user:userSave,pass,role:finalRole,photo:hasPhoto?photo:null,status:newStatus,allowedProjects:'none',empresa});
   saveDB();
   // ── LIMPAR TODOS OS CAMPOS DO FORMULÁRIO APÓS CRIAR A CONTA ──
   document.getElementById('r-nome').value='';
@@ -619,12 +1046,30 @@ function doRegister(){
   setTimeout(()=>{ ok.style.display='none'; switchAuthTab('login'); }, 2400);
 }
 function doLogin(){
-  const user=v('l-user'),pass=v('l-pass');
+  const userLC=v('l-user').toLowerCase().trim();
+  const passT=v('l-pass').trim();
+  const err=document.getElementById('l-error');
+  err.style.display='none';
+  if(!userLC||!passT){showErr(err,'Preencha usuário e senha.');return;}
+  function tryAuth(){return db.users.find(u=>u.user.toLowerCase()===userLC&&u.pass===passT)||null;}
+  var found=tryAuth();
+  if(found){finishLogin(found);return;}
+  showErr(err,'⏳ Verificando...');
+  window._fbLoad(function(loaded){
+    found=tryAuth();
+    if(found){err.style.display='none';finishLogin(found);return;}
+    var tries=0;
+    var timer=setInterval(function(){
+      tries++;found=tryAuth();
+      if(found){clearInterval(timer);err.style.display='none';finishLogin(found);return;}
+      if(tries>=8){clearInterval(timer);showErr(err,'Usuário ou senha incorretos.');}
+    },500);
+  });
+}
+
+function finishLogin(found){
   const err=document.getElementById('l-error');
   const rememberCb=document.getElementById('l-remember');
-  err.style.display='none';
-  const found=db.users.find(u=>u.user===user&&u.pass===pass);
-  if(!found){showErr(err,'Usuário ou senha incorretos.');return;}
   if(found.status==='pending'){showErr(err,'⏳ Sua conta aguarda aprovação de um Sênior. Tente novamente mais tarde.');return;}
   if(found.status==='rejected'){showErr(err,'❌ Acesso negado. Conta reprovada. Entre em contato com um Sênior.');return;}
   // Handle remember me
@@ -635,6 +1080,7 @@ function doLogin(){
   }
   session.user=found;
   session.dashSc=found.role==='fin'?'fin':found.role==='cli'?'cli':'op';
+  try{ localStorage.setItem('trilium_remember_session', JSON.stringify(found)); }catch(e){}
   // update sidebar
   const av=document.getElementById('s-avatar');
   av.className='user-avatar'+(found.role==='senior'?' senior':found.role==='fin'?' fin':'');
@@ -652,10 +1098,18 @@ function doLogin(){
   const seniorBtn=document.getElementById('sidebar-senior-btn');
   if(seniorBtn)seniorBtn.style.display=found.role==='senior'?'block':'none';
   if(found.role==='senior')updatePendingBadge();
-  showDashboard();
+  // Garante dados do Firebase antes de renderizar (novo browser)
+  if(window._fbLoad){
+    window._fbLoad(function(){ showDashboard(); if(window._startPolling) window._startPolling(); });
+  } else {
+    showDashboard();
+  }
+
 }
+
 function doLogout(){
-  session.user=null;
+  if(window._stopPolling) window._stopPolling();
+  session.user=null; try{localStorage.removeItem('trilium_remember_session');}catch(e){}
   showScreen('screen-login');
   // Only clear fields if not remembered
   const saved=localStorage.getItem('lion_remember');
@@ -868,6 +1322,7 @@ function openProject(id,view){
   const p=db.projects.find(x=>x.id===id);if(!p)return;
   setActive('mi-p'+id);renderSidebar();
   document.getElementById('tb-title').textContent=p.name;
+
   const clienteBadge=p.cliente?`<span class="topbar-badge" style="background:#0d2b0d;color:#4ade80;border:1px solid #4ade8044">🏢 ${p.cliente}</span>`:'';
   document.getElementById('tb-badge').innerHTML=(p.sc==='fin'
     ?'<span class="topbar-badge badge-fin">💰 Financeiro</span>'
@@ -880,40 +1335,172 @@ function openProject(id,view){
 // 5W2H VIEW
 // ══════════════════════════════════════════
 function renderProject(p){
-  const t=p.rows.length,d=p.rows.filter(r=>r.status===100).length;
+  const t=p.rows.length, d=p.rows.filter(r=>r.status===100).length;
   const avg=t?Math.round(p.rows.reduce((a,r)=>a+r.status,0)/t):0;
-  document.getElementById('main-content').innerHTML=`<div class="fade-in">
-    <div class="view-header">
-      <button class="btn-back" onclick="showDashboard()">← Voltar</button>
-      <div class="view-title">${p.name}</div>
-      <div class="view-tabs">
-        <button class="view-tab active" onclick="openProject(${p.id},'5w2h')">📋 5W2H</button>
-        <button class="view-tab cron" onclick="openProject(${p.id},'gantt')">📅 Cronograma</button>
+  document.getElementById('main-content').innerHTML=`
+<div class="fade-in">
+  <div class="view-header">
+    <button class="btn-back" onclick="showDashboard()">← Voltar</button>
+    <div class="view-title">${p.name}</div>
+    <div class="view-tabs">
+      <button class="view-tab active" onclick="openProject(${p.id},'5w2h')">📋 5W2H</button>
+      <button class="view-tab cron"   onclick="openProject(${p.id},'gantt')">📅 Cronograma</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-pill"><div class="v" style="color:var(--green)">${t}</div><div class="l">Ações</div></div>
+    <div class="stat-pill"><div class="v" style="color:var(--success)">${d}</div><div class="l">Concluídas</div></div>
+    <div class="gbar-wrap"><div class="gbar-track"><div class="gbar-fill" style="width:${avg}%"></div></div><div class="gbar-pct">${avg}%</div></div>
+  </div>
+
+  <!-- PAINEL EMAIL: visível só para Sênior via epRender() -->
+  <div id="ep-wrap" style="display:none;margin-bottom:14px;background:var(--p2);border:1px solid #b8f00033;border-radius:12px;overflow:hidden">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #b8f00033">
+      <div style="width:3px;height:16px;background:#b8f000;border-radius:2px;flex-shrink:0"></div>
+      <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:12px;color:#b8f000;text-transform:uppercase;letter-spacing:.5px">Notificações</span>
+      <span id="ep-count" style="background:#0d1800;border:1px solid #b8f00033;color:#b8f000;border-radius:99px;padding:1px 9px;font-size:10px;font-family:Montserrat,sans-serif;font-weight:700">0 e-mails</span>
+      <div style="flex:1"></div>
+      <button onclick="toggleEpConfig()" style="font-size:10px;color:var(--gray);background:transparent;border:1px solid #ffffff15;border-radius:6px;padding:3px 10px;cursor:pointer;font-family:Montserrat,sans-serif;font-weight:700">⚙️ EmailJS</button>
+    </div>
+
+    <!-- Config EmailJS (colapsável) -->
+    <div id="ep-cfg" style="display:none;padding:12px 16px;border-bottom:1px solid #b8f00033;background:#0d1800">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:10px;color:#b8f000;font-family:Montserrat,sans-serif;font-weight:700">CHAVES EMAILJS</span>
+        <a href="https://www.emailjs.com" target="_blank" style="font-size:9px;color:var(--gray);border:1px solid #ffffff15;border-radius:4px;padding:1px 6px;text-decoration:none;font-family:Montserrat,sans-serif">criar conta grátis ↗</a>
+        <span style="margin-left:auto;font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif">200 e-mails/mês grátis</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+        <div>
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:700;margin-bottom:3px">SERVICE ID</div>
+          <input id="ep-svc" type="text" placeholder="service_xxxxxxx" oninput="epSaveCfg()"
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;box-sizing:border-box">
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:700;margin-bottom:3px">TEMPLATE ID</div>
+          <input id="ep-tpl" type="text" placeholder="template_xxxxxxx" oninput="epSaveCfg()"
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;box-sizing:border-box">
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:700;margin-bottom:3px">PUBLIC KEY</div>
+          <input id="ep-pub" type="text" placeholder="xxxxxxxxxxxxxxxxxxxx" oninput="epSaveCfg()"
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;box-sizing:border-box">
+        </div>
+      </div>
+      <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;padding:6px 8px;background:var(--p2);border-radius:5px">
+        Vars no template: <span style="color:#b8f000">{{to_email}}</span> &nbsp;·&nbsp;
+        <span style="color:#b8f000">{{project}}</span> &nbsp;·&nbsp;
+        <span style="color:#b8f000">{{from_name}}</span> &nbsp;·&nbsp;
+        <span style="color:#b8f000">{{assunto}}</span> &nbsp;·&nbsp;
+        <span style="color:#b8f000">{{mensagem}}</span>
       </div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-pill"><div class="v" style="color:var(--green)">${t}</div><div class="l">Ações</div></div>
-      <div class="stat-pill"><div class="v" style="color:var(--success)">${d}</div><div class="l">Concluídas</div></div>
-      <div class="gbar-wrap"><div class="gbar-track"><div class="gbar-fill" style="width:${avg}%"></div></div><div class="gbar-pct">${avg}%</div></div>
+
+    <!-- Corpo: 2 colunas -->
+    <div id="ep-body-cols" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+
+      <!-- Col 1: cadastrar destinatários -->
+      <div style="padding:14px 16px;border-right:1px solid #b8f00033">
+        <div style="font-size:10px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">📧 Destinatários</div>
+        <div id="ep-chips" style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px;min-height:20px"></div>
+        <div style="display:flex;gap:6px">
+          <input id="ep-newemail" type="email" placeholder="email@empresa.com"
+            style="flex:1;min-width:0;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 10px;font-size:12px;font-family:Montserrat,sans-serif;outline:none"
+            onkeydown="if(event.key==='Enter')epAddEmail()">
+          <button onclick="epAddEmail()"
+            style="background:#b8f000;color:#000000;border:none;border-radius:6px;padding:7px 14px;font-size:13px;font-weight:800;cursor:pointer;font-family:Montserrat,sans-serif;flex-shrink:0">➕</button>
+        </div>
+        <div style="margin-top:6px;font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif">⚡ E-mail automático enviado 3s após qualquer edição</div>
+      </div>
+
+      <!-- Col 2: enviar mensagem manual -->
+      <div style="padding:14px 16px">
+        <div style="font-size:10px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">✉️ Enviar Mensagem</div>
+
+        <div style="margin-bottom:8px">
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:600;margin-bottom:4px">PARA</div>
+          <select id="ep-to"
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;cursor:pointer">
+            <option value="__all__">📢 Todos os destinatários</option>
+            ${(p.emails||[]).map(em=>`<option value="${em}">✉️ ${em}</option>`).join('')}
+          </select>
+        </div>
+
+        <div style="margin-bottom:8px">
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:600;margin-bottom:4px">ASSUNTO</div>
+          <input id="ep-subj" type="text" placeholder="Ex: Atualização do projeto"
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;box-sizing:border-box">
+        </div>
+
+        <div style="margin-bottom:10px">
+          <div style="font-size:9px;color:var(--gray);font-family:Montserrat,sans-serif;font-weight:600;margin-bottom:4px">MENSAGEM</div>
+          <textarea id="ep-msg" rows="3" placeholder="Digite a mensagem..."
+            style="width:100%;background:var(--p3);color:#fff;border:1px solid #b8f00033;border-radius:6px;padding:7px 9px;font-size:11px;font-family:Montserrat,sans-serif;outline:none;resize:none;box-sizing:border-box;line-height:1.5"></textarea>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <button onclick="epSendManual()"
+            style="background:#b8f000;color:#000000;border:none;border-radius:7px;padding:8px 20px;font-size:11px;font-weight:800;cursor:pointer;font-family:Montserrat,sans-serif">
+            🚀 Enviar
+          </button>
+          <span id="ep-send-status" style="font-size:10px;color:var(--gray);font-family:Montserrat,sans-serif"></span>
+        </div>
+      </div>
+
     </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Ação</th><th>What (O que)</th><th>Why (Por quê)</th><th>Where (Onde)</th><th>When (Quando)</th><th>Who (Quem)</th><th>How (Como)</th><th>How Much</th><th>Status</th><th>📎 Anexo</th><th></th></tr></thead>
-        <tbody id="proj-tbody"></tbody>
-      </table>
-    </div>
-    <div style="display:flex;gap:10px;margin-top:11px;flex-wrap:wrap;align-items:center">
-      <button class="btn-primary" onclick="addRow()">➕ Nova Linha</button>
-      <div class="legend" id="proj-leg"></div>
-    </div>
-  </div>`;
-  renderRows(p);buildLegend();
+  </div>
+  <!-- FIM PAINEL EMAIL -->
+
+  <!-- Tabela 5W2H -->
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Ação</th><th>What (O que)</th><th>Why (Por quê)</th><th>Where (Onde)</th>
+        <th>When (Quando)</th><th>Who (Quem)</th><th>How (Como)</th><th>How Much</th>
+        <th>Status</th><th>📎 Anexo</th><th></th>
+      </tr></thead>
+      <tbody id="proj-tbody"></tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:11px;flex-wrap:wrap;align-items:center">
+    <button class="btn-primary" onclick="addRow()">➕ Nova Linha</button>
+    <div class="legend" id="proj-leg"></div>
+  </div>
+
+</div>
+`;
+  renderRows(p);buildLegend();epRender(p);
 }
 
 function renderRows(p){
   const tbody=document.getElementById('proj-tbody');if(!tbody)return;
   tbody.innerHTML='';
-  p.rows.forEach(row=>{
+  // Mostrar dados de exemplo se projeto vazio
+  var displayRows = p.rows.length > 0 ? p.rows : [
+    {id:1,what:'Exemplo: Reduzir retrabalho',why:'Melhorar qualidade do processo',where:'Produção',when:'01/04/2026',who:'João Silva',how:'Implementar checklist de qualidade',howmuch:'R$ 500,00',status:0},
+    {id:2,what:'Treinamento da equipe',why:'Capacitar colaboradores',where:'Sala de treinamento',when:'15/04/2026',who:'Maria Souza',how:'Contratar instrutor externo',howmuch:'R$ 1.200,00',status:25},
+    {id:3,what:'Manutenção preventiva',why:'Evitar paradas não planejadas',where:'Linha de produção',when:'30/04/2026',who:'Carlos Lima',how:'Seguir plano de manutenção',howmuch:'R$ 800,00',status:50}
+  ];
+  var isDemo = p.rows.length === 0;
+  if(isDemo){
+    var demoBar = document.getElementById('proj-demo-bar');
+    if(!demoBar){
+      var bar = document.createElement('div');
+      bar.id='proj-demo-bar';
+      bar.style.cssText='background:#1a1200;border:1px solid #f5a80033;border-radius:8px;padding:8px 14px;margin-bottom:10px;font-size:11px;color:#f5a800;font-family:Montserrat,sans-serif;display:flex;align-items:center;gap:8px';
+      bar.innerHTML='<span style="font-size:14px">💡</span><span><b>Dados de exemplo</b> — Clique em <b>+ Nova Linha</b> para começar!</span>';
+      var tableWrap = document.querySelector('.table-wrap');
+      if(tableWrap) tableWrap.parentNode.insertBefore(bar, tableWrap);
+    }
+  } else {
+    var demoBar = document.getElementById('proj-demo-bar');
+    if(demoBar) demoBar.remove();
+  }
+  displayRows.forEach(row=>{
     const tr=document.createElement('tr');
     FIELDS.forEach(f=>{
       const td=document.createElement('td');td.className='editable';
@@ -925,7 +1512,7 @@ function renderRows(p){
     const sel=document.createElement('select');sel.className='ss';
     sel.style.color=STATUS[row.status].text;sel.style.border='1.5px solid '+STATUS[row.status].text;
     [0,25,50,75,100].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v+'% — '+STATUS[v].label;if(v===row.status)o.selected=true;sel.appendChild(o);});
-    sel.onchange=e=>{row.status=Number(e.target.value);saveDB();renderProject(p);};
+    sel.onchange=e=>{row.status=Number(e.target.value);saveDB();epNotify(p);renderProject(p);};
     const bw=document.createElement('div');bw.className='sbar-wrap';
     const b=document.createElement('div');b.className='sbar';
     b.style.width=row.status+'%';b.style.background=STATUS[row.status].text;b.style.boxShadow='0 0 5px '+STATUS[row.status].text;
@@ -943,7 +1530,7 @@ function renderRows(p){
       const btnRem=document.createElement('button');
       btnRem.style.cssText='background:#2a0808;color:#ef4444;border:1px solid #ef444433;border-radius:5px;font-size:9px;padding:2px 6px;cursor:pointer;font-family:Montserrat,sans-serif';
       btnRem.textContent='✕ remover';
-      btnRem.onclick=()=>{row.anexo=null;row.anexoNome='';row.anexoTipo='';saveDB();renderProject(p);};
+      btnRem.onclick=()=>{row.anexo=null;row.anexoNome='';row.anexoTipo='';saveDB();epNotify(p);renderProject(p);};
       anexoWrap.appendChild(nm);anexoWrap.appendChild(btnRem);
     } else {
       // Sem anexo: botão de upload
@@ -969,7 +1556,7 @@ function renderRows(p){
     const tdA=document.createElement('td');tdA.className='td-act';
     const w=document.createElement('div');w.style.cssText='display:flex;gap:4px;justify-content:center';
     const bc=document.createElement('button');bc.className='btn btn-clr';bc.textContent='🧹';
-    bc.onclick=()=>{FIELDS.forEach(f=>row[f]='');row.status=0;saveDB();renderProject(p);};
+    bc.onclick=()=>{FIELDS.forEach(f=>row[f]='');row.status=0;saveDB();epNotify(p);renderProject(p);};
     const bd=document.createElement('button');bd.className='btn btn-dr';bd.textContent='🗑️';
     bd.onclick=()=>{session.delRowTarget={pid:p.id,rid:row.id};openModal('modal-del-row');};
     w.appendChild(bc);w.appendChild(bd);tdA.appendChild(w);tr.appendChild(tdA);
@@ -980,8 +1567,8 @@ function startCellEdit(td,p,rowId,field){
   const row=p.rows.find(r=>r.id===rowId);
   const ta=document.createElement('textarea');ta.className='ie';ta.value=row[field]||'';
   td.textContent='';td.appendChild(ta);ta.focus();
-  ta.onblur=()=>{row[field]=ta.value;saveDB();renderRows(p);};
-  ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();row[field]=ta.value;saveDB();renderRows(p);}};
+  ta.onblur=()=>{row[field]=ta.value;saveDB();epNotify(p);renderRows(p);};
+  ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();row[field]=ta.value;saveDB();epNotify(p);renderRows(p);}};
 }
 function addRow(){
   const p=db.projects.find(x=>x.id===session.projId);if(!p)return;
@@ -1078,6 +1665,29 @@ function calcCronProgress(p){
 function renderCronRows(p){
   const tbody=document.getElementById('cron-tbody');
   if(!tbody)return;
+  // Mostrar dados de exemplo se cronograma vazio
+  var isGanttDemo = !p.gantt || p.gantt.length === 0;
+  if(isGanttDemo){
+    var originalGantt = p.gantt;
+    p = Object.assign({}, p, {gantt: [
+    {id:1,desc:'Levantamento de requisitos',semana:'1',inicio:'01/04/2026',fim:'07/04/2026',status:'Em andamento',resp:'João Silva',obs:'Reunião com stakeholders'},
+    {id:2,desc:'Planejamento e cronograma',semana:'2',inicio:'08/04/2026',fim:'14/04/2026',status:'Não iniciado',resp:'Maria Souza',obs:''},
+    {id:3,desc:'Execução das ações',semana:'3-4',inicio:'15/04/2026',fim:'28/04/2026',status:'Não iniciado',resp:'Carlos Lima',obs:'Ver relatório anterior'},
+    {id:4,desc:'Revisão e ajustes finais',semana:'5',inicio:'29/04/2026',fim:'05/05/2026',status:'Não iniciado',resp:'João Silva',obs:''}
+  ]});
+    var demoBarC = document.getElementById('cron-demo-bar');
+    if(!demoBarC){
+      var bc = document.createElement('div');
+      bc.id='cron-demo-bar';
+      bc.style.cssText='background:#1a1200;border:1px solid #f5a80033;border-radius:8px;padding:8px 14px;margin:0 18px 10px;font-size:11px;color:#f5a800;font-family:Montserrat,sans-serif;display:flex;align-items:center;gap:8px';
+      bc.innerHTML='<span style="font-size:14px">💡</span><span><b>Dados de exemplo</b> — Clique em <b>➕ Adicionar Item</b> para começar!</span>';
+      var cronWrap = document.querySelector('.gantt-wrap');
+      if(cronWrap){ var toolbar=cronWrap.querySelector('.gantt-toolbar'); if(toolbar) toolbar.after(bc); }
+    }
+  } else {
+    var demoBarC = document.getElementById('cron-demo-bar');
+    if(demoBarC) demoBarC.remove();
+  }
   const avg=calcCronProgress(p);
   // update progress bar
   const pa=document.getElementById('cron-progress-area');
@@ -1129,12 +1739,14 @@ function editCronCell(td,pid,gid,field){
   const row=p&&p.gantt&&p.gantt.find(g=>g.id===gid);
   if(!row)return;
   const cur=row[field]||'';
+  const isDate=(field==='inicio'||field==='fim'||field==='when');
   const inp=document.createElement(field==='task'||field==='obs'?'textarea':'input');
-  inp.value=cur;
+  if(isDate){inp.type='date';const pts=cur?cur.split('/'):[];inp.value=pts.length===3?pts[2]+'-'+pts[1]+'-'+pts[0]:cur;}
+  else{inp.value=cur;}
   inp.style.cssText='width:100%;background:#0d0d0d;color:#f5a800;border:1.5px solid #f5a800;border-radius:4px;padding:3px 5px;font-size:11px;outline:none;font-family:Inter,sans-serif;resize:none';
   if(field==='start'||field==='end')inp.type='date';
   td.textContent='';td.appendChild(inp);inp.focus();
-  const save=()=>{row[field]=inp.value;saveDB();renderCronRows(p);};
+  const save=()=>{row[field]=inp.value;saveDB();epNotify(p);renderCronRows(p);};
   inp.onblur=save;
   inp.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();save();}};
 }
@@ -1142,7 +1754,7 @@ function editCronCell(td,pid,gid,field){
 function updateCronStatus(pid,gid,val){
   const p=db.projects.find(x=>x.id===pid);
   const row=p&&p.gantt&&p.gantt.find(g=>g.id===gid);
-  if(row){row.status=Number(val);saveDB();renderCronRows(p);}
+  if(row){row.status=Number(val);saveDB();epNotify(p);renderCronRows(p);}
 }
 
 function openAddCronForm(pid){
@@ -1300,7 +1912,18 @@ function spRenderProjects(){
 
 function approveUser(username){
   const u=db.users.find(x=>x.user===username);
-  if(u){u.status='approved';}
+  if(!u)return;
+  u.status='approved';
+  // Auto-add user to all projects of their role that have allowedUsers:'all'
+  db.projects.forEach(function(p){
+    if(p.sc===u.role){
+      if(p.allowedUsers==='all'){
+        // stays 'all' — user will see it automatically
+      } else if(Array.isArray(p.allowedUsers)&&!p.allowedUsers.includes(username)){
+        p.allowedUsers.push(username);
+      }
+    }
+  });
   saveDB();
   updatePendingBadge();
   spRenderPending();
@@ -1493,96 +2116,35 @@ function showErr(el,msg){el.textContent=msg;el.style.display='block'}
       document.getElementById('l-remember').checked=true;
     }
   }catch(e){localStorage.removeItem('lion_remember');}
+  // Auto-login: restore session on page refresh
+  try{
+    const sess=localStorage.getItem('trilium_remember_session');
+    if(sess){
+      const creds=JSON.parse(sess);
+      function tryAutoLogin(){
+        const found=db.users.find(function(u){return u.user.toLowerCase()===creds.user.toLowerCase()&&u.pass===creds.pass;});
+        if(found&&found.status==='approved'){
+          session.user=found;
+          session.dashSc=found.role==='fin'?'fin':found.role==='cli'?'cli':'op';
+          document.getElementById('screen-login').classList.remove('active');
+          document.getElementById('screen-app').classList.add('active');
+          renderSidebar();
+          console.log('[AutoLogin] restaurado:',found.user);
+        }
+      }
+      tryAutoLogin();
+      if(!session.user&&window._fbLoad){window._fbLoad(function(){tryAutoLogin();});}
+    }
+  }catch(e){localStorage.removeItem('trilium_remember_session');}
 })();
 </script>
-
-<!-- ══ MODAL: PAINEL SÊNIOR ══ -->
-<div class="modal-overlay" id="modal-senior-panel" style="z-index:300">
-  <div class="modal" style="max-width:660px;width:96%;max-height:88vh;overflow-y:auto;padding:24px">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
-      <div>
-        <div class="modal-title" style="margin-bottom:2px">👑 Painel Sênior</div>
-        <div style="font-size:11px;color:var(--gray)">Gerencie usuários e acesso a projetos</div>
-      </div>
-      <button onclick="closeModal('modal-senior-panel')" style="background:var(--p3);border:1px solid #b8f00020;color:var(--gray);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px">✕</button>
-    </div>
-
-    <!-- TABS -->
-    <div style="display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid #b8f00022;margin-bottom:18px;flex-wrap:wrap">
-      <button id="sp-tab-users" class="view-tab active" onclick="spShowTab('users')" style="flex:1;min-width:110px">👤 Pendentes</button>
-      <button id="sp-tab-approved" class="view-tab" onclick="spShowTab('approved')" style="flex:1;min-width:110px">✅ Aprovados</button>
-      <button id="sp-tab-projects" class="view-tab" onclick="spShowTab('projects')" style="flex:1;min-width:110px">📁 Projetos</button>
-      <button id="sp-tab-all" class="view-tab" onclick="spShowTab('all')" style="flex:1;min-width:110px">👥 Colaboradores</button>
-    </div>
-
-    <!-- TAB: PENDING USERS -->
-    <div id="sp-panel-users">
-      <div id="sp-pending-list"></div>
-    </div>
-
-    <!-- TAB: APPROVED USERS -->
-    <div id="sp-panel-approved" style="display:none">
-      <div id="sp-approved-list"></div>
-    </div>
-
-    <!-- TAB: PROJECT ACCESS -->
-    <div id="sp-panel-projects" style="display:none">
-      <div id="sp-projects-list"></div>
-    </div>
-
-    <!-- TAB: ALL COLLABORATORS -->
-    <div id="sp-panel-all" style="display:none">
-      <div id="sp-all-list"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ SCREEN: EDIT PROFILE ══ -->
-<div id="screen-edit-profile" class="screen">
-  <div class="auth-card fade-in">
-    <div class="auth-logo" style="font-family:Montserrat,sans-serif;font-size:42px;font-weight:900;color:var(--green);letter-spacing:3px;margin-bottom:8px">✦ TRILLIUM</div>
-    <div class="auth-title">Plataforma 5W2H</div>
-    <div class="auth-sub">LION · Editar Perfil</div>
-
-    <!-- Photo upload -->
-    <div class="photo-upload-wrap">
-      <div class="photo-preview" onclick="document.getElementById('ep-photo-input').click()" title="Clique para trocar foto">
-        <span id="ep-photo-icon" style="display:none">📷</span>
-        <span id="ep-photo-initial" style="font-size:34px;font-weight:800;color:var(--warn)">U</span>
-        <img id="ep-photo-img" src="" alt="" style="display:none">
-        <div class="photo-overlay">✏️</div>
-      </div>
-      <div class="photo-label">Foto de Perfil</div>
-      <div class="photo-hint">Clique no círculo ou no botão abaixo</div>
-      <input type="file" id="ep-photo-input" accept="image/*" onchange="epLoadPhoto(this)" style="display:block;width:100%;opacity:0;height:0;overflow:hidden">
-      <button type="button" onclick="document.getElementById('ep-photo-input').click()" style="background:var(--p3);color:var(--green);border:1.5px solid #b8f00044;border-radius:8px;padding:6px 18px;font-size:11px;font-weight:700;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:.5px;margin-top:2px">📁 TROCAR FOTO</button>
-    </div>
-
-    <div class="field"><label>Nome Completo</label><input id="ep-nome" type="text" placeholder="Seu nome completo"></div>
-    <div class="field"><label>Usuário (login)</label><input id="ep-user" type="text" placeholder="nome_usuario"></div>
-    <div class="field"><label>Perfil de Acesso</label>
-      <select id="ep-perfil" style="width:100%;background:var(--p3);color:#fff;border:1.5px solid #f5a80030;border-radius:10px;padding:11px 14px;font-size:13px;font-family:Montserrat,sans-serif;outline:none">
-        <option value="op">🔵 Operacional</option>
-        <option value="fin">💰 Financeiro</option>
-      </select>
-    </div>
-    <div class="field"><label>Nova Senha <span style="color:var(--gray);font-weight:400">(deixe vazio para não alterar)</span></label><input id="ep-pass" type="password" placeholder="Nova senha"></div>
-    <div class="field"><label>Confirmar Nova Senha</label><input id="ep-pass2" type="password" placeholder="Confirme a nova senha"></div>
-
-    <div id="ep-err" style="display:none;color:var(--danger);font-size:12px;margin-bottom:10px;padding:8px;background:#1a0000;border-radius:8px;border:1px solid #ef444433"></div>
-    <div id="ep-ok" style="display:none;color:#4ade80;font-size:12px;margin-bottom:10px;padding:8px;background:#001a0a;border-radius:8px;border:1px solid #4ade8033">✅ Perfil atualizado com sucesso!</div>
-
-    <button class="btn-auth" onclick="saveProfile()">💾 SALVAR ALTERAÇÕES</button>
-    <div style="margin-top:12px;text-align:center">
-      <span onclick="showScreen('screen-app')" style="color:var(--warn);font-size:12px;cursor:pointer;font-family:Montserrat,sans-serif;font-weight:600">← Voltar sem salvar</span>
-    </div>
-  </div>
-</div>
-
 <script>
 
   // ── SYNC CONSTANTS ──
   const DB_KEY = 'trilium_db';
+  window._DB_KEY = 'trilium_db';
+  window._PH_KEY = 'trilium_photos';
+  window._APP_ID = 'trilium_5w2h';
   const PH_KEY = 'trilium_photos';
   const APP_ID = 'trilium_5w2h';
 
@@ -1681,6 +2243,287 @@ function abrirAnexo(data, nome, tipo){
     const a=document.createElement('a');a.href=data;a.download=nome;a.click();
   }
 }
+</script>
+<script>
+// ══ EMAIL & NOTIF — versão limpa ══════════════════════════════
+
+function epRender(p) {
+  const wrap = document.getElementById('ep-wrap'); if (!wrap) return;
+  const u = session.user && typeof session.user === 'object' ? session.user : db.users.find(x => x.user === session.user);
+  if (!u || u.role !== 'senior') { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+  if (!p.emailjsConfig) p.emailjsConfig = {serviceId:'',templateId:'',publicKey:''};
+  if (!p.emails) p.emails = [];
+  if (!p.internalMsg) p.internalMsg = '';
+  // fill config
+  const s = document.getElementById('ep-svc');
+  const t = document.getElementById('ep-tpl');
+  const k = document.getElementById('ep-pub');
+  if (s) s.value = p.emailjsConfig.serviceId || '';
+  if (t) t.value = p.emailjsConfig.templateId || '';
+  if (k) k.value = p.emailjsConfig.publicKey || '';
+  // count
+  const cnt = document.getElementById('ep-count');
+  if (cnt) cnt.textContent = p.emails.length + ' e-mail' + (p.emails.length !== 1 ? 's' : '');
+  // msg
+  const ta = document.getElementById('ep-msg');
+  if (ta) ta.value = p.internalMsg || '';
+  // chips
+  epChips(p);
+  epFillSelect(p);
+}
+
+function epChips(p) {
+  const chips = document.getElementById('ep-chips'); if (!chips) return;
+  chips.innerHTML = '';
+  if (!p.emails || p.emails.length === 0) {
+    chips.innerHTML = '<span style="font-size:10px;color:var(--gray);font-family:Montserrat,sans-serif">Nenhum e-mail cadastrado.</span>';
+    return;
+  }
+  p.emails.forEach((em, i) => {
+    const d = document.createElement('div');
+    d.style.cssText = 'display:flex;align-items:center;gap:6px;background:var(--p3);border:1px solid #b8f00033;border-radius:6px;padding:4px 8px';
+    d.innerHTML = `<span style="flex:1;font-size:10px;color:var(--gray2);font-family:Montserrat,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">📧 ${em}</span>
+      <button onclick="epRemove(${p.id},${i})" style="background:none;border:none;color:#ef4444;cursor:pointer;font-size:12px;padding:0;flex-shrink:0">✕</button>`;
+    chips.appendChild(d);
+  });
+}
+
+function toggleEpConfig() {
+  const b = document.getElementById('ep-cfg');
+  if (b) b.style.display = b.style.display === 'none' ? 'block' : 'none';
+}
+
+function epSaveCfg() {
+  const p = db.projects.find(x => x.id === session.projId); if (!p) return;
+  if (!p.emailjsConfig) p.emailjsConfig = {};
+  p.emailjsConfig.serviceId  = (document.getElementById('ep-svc')||{}).value||'';
+  p.emailjsConfig.templateId = (document.getElementById('ep-tpl')||{}).value||'';
+  p.emailjsConfig.publicKey  = (document.getElementById('ep-pub')||{}).value||'';
+  saveDB();
+}
+
+function epAddEmail() {
+  const inp = document.getElementById('ep-newemail'); if (!inp) return;
+  const em = inp.value.trim().toLowerCase();
+  if (!em || !em.includes('@') || !em.includes('.')) { showToast('❌ E-mail inválido!'); inp.focus(); return; }
+  const pid = session.projId;
+  const p = pid != null ? db.projects.find(x => x.id === pid) : null;
+  if (!p) { showToast('❌ Projeto não encontrado!'); return; }
+  if (!p.emails) p.emails = [];
+  if (p.emails.includes(em)) { showToast('⚠️ Já cadastrado!'); inp.value=''; return; }
+  p.emails.push(em); saveDB(); inp.value = ''; inp.focus();
+  const cnt = document.getElementById('ep-count');
+  if (cnt) cnt.textContent = p.emails.length + ' e-mail' + (p.emails.length !== 1 ? 's' : '');
+  epChips(p); epFillSelect(p); showToast('✅ ' + em + ' adicionado!');
+}
+
+function epRemove(pid, idx) {
+  const p = db.projects.find(x => x.id === pid); if (!p || !p.emails) return;
+  const em = p.emails.splice(idx, 1)[0]; saveDB();
+  const cnt = document.getElementById('ep-count');
+  if (cnt) cnt.textContent = p.emails.length + ' e-mail' + (p.emails.length !== 1 ? 's' : '');
+  epChips(p); epFillSelect(p); showToast('🗑️ ' + em + ' removido.');
+}
+
+let _epNotifyT = null;
+function epNotify(p) {
+  if (!p?.emails?.length) return;
+  const cfg = p.emailjsConfig || {};
+  if (!cfg.serviceId || !cfg.templateId || !cfg.publicKey) return;
+  clearTimeout(_epNotifyT);
+  _epNotifyT = setTimeout(() => _epSend(p), 3000);
+}
+
+async function _epSend(p) {
+  const cfg = p.emailjsConfig || {};
+  if (!cfg.serviceId || !cfg.templateId || !cfg.publicKey || !p.emails?.length) return;
+  try {
+    if (typeof emailjs === 'undefined') return;
+    emailjs.init(cfg.publicKey);
+    const sender = session.user && typeof session.user === 'object' ? session.user : db.users.find(u => u.user === session.user);
+    const nome = sender?.nome || session.user || 'Sistema';
+    for (const email of p.emails) {
+      try {
+        await emailjs.send(cfg.serviceId, cfg.templateId, {
+          to_email: email, to_name: email, from_name: nome,
+          projeto: p.name,
+          assunto: 'Atualização: ' + p.name,
+          mensagem: 'O projeto "' + p.name + '" foi atualizado por ' + nome + '. Acesse para ver as mudanças.',
+          reply_to: email,
+        });
+      } catch(e) { console.warn('[EP]', email, e); }
+    }
+    showToast('📧 Notificação enviada para ' + p.emails.length + ' pessoa(s)');
+  } catch(e) { console.error('[EP]', e); }
+}
+
+async function epSendManual() {
+  const p = db.projects.find(x => x.id === session.projId); if (!p) return;
+  const toVal  = (document.getElementById('ep-to')   ||{}).value || '__all__';
+  const subj   = ((document.getElementById('ep-subj')||{}).value||'').trim();
+  const msg    = ((document.getElementById('ep-msg') ||{}).value||'').trim();
+  const status = document.getElementById('ep-send-status');
+  if (!subj) { showToast('⚠️ Preencha o assunto!'); return; }
+  if (!msg)  { showToast('⚠️ Preencha a mensagem!'); return; }
+  const cfg = p.emailjsConfig || {};
+  if (!cfg.serviceId || !cfg.templateId || !cfg.publicKey) {
+    showToast('⚠️ Configure o EmailJS primeiro! Clique em ⚙️ EmailJS'); return;
+  }
+  const targets = toVal === '__all__' ? (p.emails||[]) : [toVal];
+  if (!targets.length) { showToast('⚠️ Nenhum destinatário cadastrado!'); return; }
+  if (status) { status.textContent = '⏳ Enviando...'; status.style.color='#f59e0b'; }
+  try {
+    if (typeof emailjs === 'undefined') { showToast('❌ EmailJS não carregado!'); return; }
+    emailjs.init(cfg.publicKey);
+    const u = session.user && typeof session.user === 'object' ? session.user : db.users.find(x => x.user === session.user);
+    const nome = u ? u.nome : 'Sistema 5W2H';
+    let sent=0, failed=0;
+    for (const email of targets) {
+      try {
+        await emailjs.send(cfg.serviceId, cfg.templateId, {
+          to_email: email, to_name: email, from_name: nome,
+          projeto: p.name, assunto: subj, mensagem: msg, reply_to: email,
+        });
+        sent++;
+      } catch(e) { console.warn('[EP manual]', email, e); failed++; }
+    }
+    const ok = sent === targets.length;
+    if (status) {
+      status.textContent = ok ? ('✅ Enviado para '+sent+' pessoa(s)!') : ('⚠️ '+sent+' enviados, '+failed+' falha(s).');
+      status.style.color = ok ? '#4ade80' : '#f59e0b';
+    }
+    showToast(ok ? '🚀 Mensagem enviada!' : '⚠️ Envio parcial.');
+    if (ok) {
+      const ms = document.getElementById('ep-msg');  if(ms) ms.value='';
+      const ss = document.getElementById('ep-subj'); if(ss) ss.value='';
+    }
+  } catch(e) {
+    if (status) { status.textContent='❌ Erro. Verifique EmailJS.'; status.style.color='#ef4444'; }
+    showToast('❌ Erro ao enviar!'); console.error(e);
+  }
+}
+
+</script>
+<script>
+  function openFirebaseConfig() {
+    // Load saved config
+    try {
+      const saved = JSON.parse(localStorage.getItem('trilium_db_firebase_config') || '{}');
+      document.getElementById('fb-apikey').value  = saved.apiKey || '';
+      document.getElementById('fb-auth').value    = saved.authDomain || '';
+      document.getElementById('fb-proj').value    = saved.projectId || '';
+      document.getElementById('fb-bucket').value  = saved.storageBucket || '';
+      document.getElementById('fb-sender').value  = saved.messagingSenderId || '';
+      document.getElementById('fb-appid').value   = saved.appId || '';
+    } catch(e) {}
+    openModal('modal-firebase');
+  }
+
+  async function saveFirebaseConfig() {
+    const cfg = {
+      apiKey:            document.getElementById('fb-apikey').value.trim(),
+      authDomain:        document.getElementById('fb-auth').value.trim(),
+      projectId:         document.getElementById('fb-proj').value.trim(),
+      storageBucket:     document.getElementById('fb-bucket').value.trim(),
+      messagingSenderId: document.getElementById('fb-sender').value.trim(),
+      appId:             document.getElementById('fb-appid').value.trim(),
+    };
+    if (!cfg.apiKey || !cfg.projectId) {
+      document.getElementById('fb-status').style.color='#ef4444';
+      document.getElementById('fb-status').textContent='❌ Preencha ao menos API Key e Project ID.';
+      return;
+    }
+    localStorage.setItem('trilium_db_firebase_config', JSON.stringify(cfg));
+    document.getElementById('fb-status').style.color='#f59e0b';
+    document.getElementById('fb-status').textContent='⏳ Conectando e fazendo upload dos dados...';
+    // Force page reload to re-init Firebase with new config
+    showToast('✅ Configuração salva! Recarregando...');
+    setTimeout(() => location.reload(), 1500);
+  }
+  </script>
+<script>
+// Show Firebase status in button
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const btn = document.getElementById('firebase-btn');
+    if (!btn) return;
+    try {
+      const cfg = JSON.parse(localStorage.getItem(window._DB_KEY + '_firebase_config') || '{}');
+      if (cfg.apiKey && cfg.apiKey !== 'COLE_AQUI') {
+        btn.style.color = '#4ade80';
+        btn.style.borderColor = '#4ade8033';
+        btn.textContent = '☁️ Nuvem: Conectado ✅';
+      } else {
+        btn.style.color = '#f59e0b';
+        btn.style.borderColor = '#f59e0b33';
+        btn.textContent = '☁️ Nuvem: Configurar';
+      }
+    } catch(e) {}
+  }, 1000);
+});
+</script>
+<script>(function(){
+  var SESS='trilium_remember_session';
+  function goApp(u){session.user=u;session.dashSc=u.role==='cli'?'cli':'op';
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+    document.getElementById('screen-app').classList.add('active');renderSidebar();showDashboard();}
+  function tryAuto(){
+    try{var raw=localStorage.getItem(SESS);if(!raw)return false;
+      var u=JSON.parse(raw);if(!u||!u.user||!u.status)return false;
+      var live=(db&&db.users)?db.users.find(function(x){return x.user===u.user;}):null;
+      var obj=live||u;if(obj&&obj.status==='approved'){goApp(obj);return true;}
+      localStorage.removeItem(SESS);}catch(e){localStorage.removeItem(SESS);}return false;}
+  if(tryAuto())return;
+  var ov=document.getElementById('fb-loading');
+  window._fbLoad(function(ok){
+    if(ov)ov.style.display='none';
+    if(!session.user)tryAuto();
+    else{var live=db.users.find(function(u){return u.user===session.user.user;});
+      if(live){session.user=live;try{localStorage.setItem(SESS,JSON.stringify(live));}catch(e){}}
+      renderSidebar();}
+  });
+  setTimeout(function(){if(ov)ov.style.display='none';},6000);
+})();</script>
+<script>
+(function(){
+  var SESS='trilium_remember_session';
+  function goApp(u){
+    session.user=u;
+    session.dashSc=u.role==='cli'?'cli':'op';
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+    document.getElementById('screen-app').classList.add('active');
+    renderSidebar();
+    showDashboard();
+  }
+  function tryAuto(){
+    try{
+      var raw=localStorage.getItem(SESS);if(!raw)return false;
+      var u=JSON.parse(raw);
+      if(!u||!u.user||!u.status)return false;
+      var live=(db&&db.users)?db.users.find(function(x){return x.user===u.user;}):null;
+      var obj=live||u;
+      if(obj&&obj.status==='approved'){goApp(obj);return true;}
+      localStorage.removeItem(SESS);
+    }catch(e){localStorage.removeItem(SESS);}
+    return false;
+  }
+  // screen-login já está ativo no HTML — aparece imediatamente
+  // Tenta auto-login com sessão salva
+  if(tryAuto())return;
+  // Aguarda Firebase
+  var ov=document.getElementById('fb-loading');
+  window._fbLoad(function(ok){
+    if(ov)ov.style.display='none';
+    if(!session.user)tryAuto(); // tenta de novo com dados do firebase
+    else{
+      var live=db.users.find(function(u){return u.user===session.user.user;});
+      if(live){session.user=live;try{localStorage.setItem(SESS,JSON.stringify(live));}catch(e){}}
+      renderSidebar();
+    }
+  });
+  setTimeout(function(){if(ov)ov.style.display='none';},6000);
+})();
 </script>
 </body>
 </html>
