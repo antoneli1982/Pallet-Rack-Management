@@ -296,7 +296,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
 /* ════ RÉGUA LATERAL ════ */
 #ruler-wrap{
   position:absolute;right:12px;top:10px;bottom:10px;
-  width:90px;display:flex;gap:0;pointer-events:all;z-index:50;cursor:ns-resize;
+  width:108px;display:flex;gap:0;pointer-events:all;z-index:50;cursor:ns-resize;
 }
 #ruler-track{
   position:relative;flex:1;
@@ -317,24 +317,54 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
 #ruler-track:hover #ruler-drag-hint{opacity:0}
 #ruler-indicator{cursor:grab}
 #ruler-indicator:active{cursor:grabbing}
-.ruler-zone{position:absolute;left:0;right:0;transition:opacity .3s}
+.ruler-zone{position:absolute;left:0;right:0;transition:opacity .3s;pointer-events:none}
+/* ── MARCAS CLICÁVEIS A CADA 50 CM ── */
 .ruler-mark{
-  position:absolute;left:0;right:0;
-  border-top:1px dashed rgba(245,194,0,.25);
+  position:absolute;left:0;right:0;height:14px;
+  margin-bottom:-7px; /* centraliza na altura exata */
+  cursor:pointer;
+  pointer-events:all;
+  transition:background .15s;
+  z-index:5;
 }
-.rm-0{bottom:100%} /* ajustadas via JS percentagem */
+.ruler-mark::before{
+  /* linha da marca */
+  content:'';position:absolute;left:0;right:0;top:7px;height:1px;
+  border-top:1px dashed rgba(245,194,0,.3);
+  pointer-events:none;
+}
+.ruler-mark.rm-major::before{
+  border-top:1.5px solid rgba(245,194,0,.55);
+}
+.ruler-mark.rm-limit::before{
+  border-top:2px solid rgba(255,60,40,.9);
+  box-shadow:0 0 8px rgba(255,60,40,.6);
+}
+.ruler-mark:hover{background:rgba(245,194,0,.12)}
+.ruler-mark:hover::before{border-top-color:var(--y)}
+.ruler-mark.rm-hit{background:rgba(245,194,0,.22);animation:markPulse .6s ease-out}
+@keyframes markPulse{
+  0%{background:rgba(245,194,0,.55)}
+  100%{background:rgba(245,194,0,.22)}
+}
 .ruler-mark .rm-label{
-  position:absolute;left:4px;top:-9px;
-  font-size:8px;color:rgba(245,194,0,.5);
-  font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.5px;
-  white-space:nowrap;
+  position:absolute;left:5px;top:-2px;
+  font-size:8px;color:rgba(245,194,0,.55);
+  font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.3px;
+  white-space:nowrap;pointer-events:none;
+  transition:color .15s;
 }
-/* posição das marcas (bottom %) = altura/3.5 * 100 */
-.rm-0{bottom:100%}  /* 3.5m → topo */
-.rm-1{bottom:85.7%} /* 3.0m */
-.rm-2{bottom:71.4%} /* 2.5m */
-.rm-3{bottom:45.7%} /* 1.6m */
-.rm-4{bottom:0%}    /* 0m   */
+.ruler-mark.rm-major .rm-label{font-size:9px;color:rgba(245,194,0,.8);font-weight:700}
+.ruler-mark.rm-limit .rm-label{color:#ff6644;font-weight:900;font-size:9px}
+.ruler-mark:hover .rm-label{color:var(--y)}
+.ruler-mark .rm-kg{
+  position:absolute;right:5px;top:-1px;
+  font-size:7px;color:rgba(255,255,255,.35);
+  font-family:'Poppins',sans-serif;font-weight:600;
+  pointer-events:none;letter-spacing:.2px;
+}
+.ruler-mark.rm-major .rm-kg{color:rgba(255,255,255,.55)}
+.ruler-mark.rm-limit .rm-kg{color:#ff8866;font-weight:700}
 #ruler-indicator{
   position:absolute;left:0;right:0;
   transition:bottom .08s linear;
@@ -739,6 +769,9 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
   .cc-info strong{font-size:11px}
   .req-item{font-size:10px;padding:6px 8px}
   #ruler-wrap{right:6px;width:70px}
+  .ruler-mark .rm-kg{display:none} /* economiza espaço em tela pequena */
+  .ruler-mark .rm-label{font-size:7px}
+  .ruler-mark.rm-major .rm-label{font-size:8px}
   .rcs-item{font-size:7px}
 
   /* ══ SLIDE 3 — ESPECIFICAÇÕES ══ */
@@ -814,7 +847,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
       <div id="cover-sep"></div>
       <p id="cover-sub">Documentação Técnica · Tour 3D Interativo · Paleteira Elétrica</p>
       <div id="cover-stats">
-        <div class="cst"><span class="cst-v">1.080</span><span class="cst-l">kg cap. máx.</span></div>
+        <div class="cst"><span class="cst-v">1.600</span><span class="cst-l">kg cap. máx.</span></div>
         <div class="cst"><span class="cst-v">5 m</span><span class="cst-l">altura máx.</span></div>
         <div class="cst"><span class="cst-v">3</span><span class="cst-l">níveis — 5m total</span></div>
       </div>
@@ -897,34 +930,47 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
       <!-- ═══ RÉGUA LATERAL ═══ -->
       <div id="ruler-wrap">
         <div id="ruler-track">
-          <!-- Marcações fixas 0.5m em 0.5m -->
-          <div class="ruler-mark rm-0" data-m="3.5"><span class="rm-label">3,5 m</span></div>
-          <div class="ruler-mark rm-1" data-m="3.0"><span class="rm-label">3,0 m</span></div>
-          <div class="ruler-mark rm-2" data-m="2.5"><span class="rm-label">2,5 m</span></div>
-          <div class="ruler-mark rm-3" data-m="1.6"><span class="rm-label">1,6 m</span></div>
-          <div class="ruler-mark rm-4" data-m="0.0"><span class="rm-label">0,0 m</span></div>
-          <!-- Zonas de capacidade coloridas -->
-          <div class="ruler-zone" id="rz-3" style="bottom:50%;top:0%;background:rgba(255,50,30,.18)"></div>
-          <div class="ruler-zone" id="rz-2" style="bottom:41%;top:50%;background:rgba(255,140,30,.14)"></div>
-          <div class="ruler-zone" id="rz-1" style="bottom:27%;top:41%;background:rgba(255,200,30,.10)"></div>
-          <div class="ruler-zone" id="rz-0" style="bottom:0%;top:73%;background:rgba(68,204,68,.10)"></div>
+          <!-- Marcações clicáveis a cada 50 cm (0 → 5,4 m) -->
+          <!-- bottom% = altura/5.4 * 100. Capacidade conforme plaqueta oficial -->
+          <div class="ruler-mark rm-limit" data-m="5.4" style="bottom:100%"  onclick="rulerJumpTo(5.4)" title="Ir para 5,4 m (LIMITE)"><span class="rm-label">5,4 m ⚠</span><span class="rm-kg">600 kg</span></div>
+          <div class="ruler-mark"          data-m="5.0" style="bottom:92.59%" onclick="rulerJumpTo(5.0)" title="Ir para 5,0 m"><span class="rm-label">5,0</span><span class="rm-kg">720 kg</span></div>
+          <div class="ruler-mark"          data-m="4.5" style="bottom:83.33%" onclick="rulerJumpTo(4.5)" title="Ir para 4,5 m"><span class="rm-label">4,5</span><span class="rm-kg">900 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="4.0" style="bottom:74.07%" onclick="rulerJumpTo(4.0)" title="Ir para 4,0 m"><span class="rm-label">4,0 m</span><span class="rm-kg">1.100 kg</span></div>
+          <div class="ruler-mark"          data-m="3.5" style="bottom:64.81%" onclick="rulerJumpTo(3.5)" title="Ir para 3,5 m"><span class="rm-label">3,5</span><span class="rm-kg">1.300 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="3.0" style="bottom:55.56%" onclick="rulerJumpTo(3.0)" title="Ir para 3,0 m"><span class="rm-label">3,0 m</span><span class="rm-kg">1.567 kg</span></div>
+          <div class="ruler-mark"          data-m="2.5" style="bottom:46.30%" onclick="rulerJumpTo(2.5)" title="Ir para 2,5 m"><span class="rm-label">2,5</span><span class="rm-kg">1.600 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="2.0" style="bottom:37.04%" onclick="rulerJumpTo(2.0)" title="Ir para 2,0 m"><span class="rm-label">2,0 m</span><span class="rm-kg">1.600 kg</span></div>
+          <div class="ruler-mark"          data-m="1.5" style="bottom:27.78%" onclick="rulerJumpTo(1.5)" title="Ir para 1,5 m"><span class="rm-label">1,5</span><span class="rm-kg">1.600 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="1.0" style="bottom:18.52%" onclick="rulerJumpTo(1.0)" title="Ir para 1,0 m"><span class="rm-label">1,0 m</span><span class="rm-kg">1.600 kg</span></div>
+          <div class="ruler-mark"          data-m="0.5" style="bottom:9.26%"  onclick="rulerJumpTo(0.5)" title="Ir para 0,5 m"><span class="rm-label">0,5</span><span class="rm-kg">1.600 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="0.0" style="bottom:0%"     onclick="rulerJumpTo(0.0)" title="Descer ao piso"><span class="rm-label">0,0 m</span><span class="rm-kg">PISO</span></div>
+          <!-- Zonas de capacidade coloridas (plaqueta oficial, MAX_H=5,4m) -->
+          <!-- Vermelho: 4,5 a 5,4m  (900→600 kg)        = bottom 83,3% -->
+          <!-- Laranja:  4,0 a 4,5m  (1100→900 kg)       = bottom 74,1% -->
+          <!-- Amarelo:  3,5 a 4,0m  (1300→1100 kg)      = bottom 64,8% -->
+          <!-- Verde-amarelo: 2,9 a 3,5m (1600→1300 kg)  = bottom 53,7% -->
+          <!-- Verde:    0 a 2,9m    (1600 kg constante) = bottom 0% -->
+          <div class="ruler-zone" id="rz-3" style="bottom:83.3%;top:0%;background:rgba(255,50,30,.18)"></div>
+          <div class="ruler-zone" id="rz-2" style="bottom:64.8%;top:16.7%;background:rgba(255,140,30,.14)"></div>
+          <div class="ruler-zone" id="rz-1" style="bottom:53.7%;top:35.2%;background:rgba(255,200,30,.10)"></div>
+          <div class="ruler-zone" id="rz-0" style="bottom:0%;top:46.3%;background:rgba(68,204,68,.10)"></div>
           <!-- Drag hint -->
-          <div id="ruler-drag-hint">▲▼ ARRASTE</div>
+          <div id="ruler-drag-hint">CLIQUE OU ARRASTE</div>
           <!-- Indicador da posição atual (seta) -->
           <div id="ruler-indicator">
             <div id="ruler-arrow">◀</div>
             <div id="ruler-bubble">
               <div id="rb-h">0.00 m</div>
-              <div id="rb-kg">1.080 kg</div>
+              <div id="rb-kg">1.600 kg</div>
             </div>
           </div>
         </div>
-        <!-- Escala de capacidade -->
+        <!-- Escala de capacidade (plaqueta oficial) -->
         <div id="ruler-cap-scale">
-          <div class="rcs-item" style="color:#ff3333">630<span>kg</span></div>
-          <div class="rcs-item" style="color:#ff8833">720<span>kg</span></div>
-          <div class="rcs-item" style="color:#ffcc33">900<span>kg</span></div>
-          <div class="rcs-item" style="color:#44cc44">1.080<span>kg</span></div>
+          <div class="rcs-item" style="color:#ff3333">600<span>kg</span></div>
+          <div class="rcs-item" style="color:#ff8833">900<span>kg</span></div>
+          <div class="rcs-item" style="color:#ffcc33">1.300<span>kg</span></div>
+          <div class="rcs-item" style="color:#44cc44">1.600<span>kg</span></div>
         </div>
       </div>
       <!-- ═══ FIM RÉGUA ═══ -->
@@ -952,11 +998,11 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
       <div class="pp-section">
         <div class="pp-title">Selecionar Nível</div>
         <div class="level-grid">
-          <button class="lvl-btn" onclick="setLevel(0)">PISO<small>0,00 m · 1.080 kg</small></button>
-          <button class="lvl-btn" onclick="setLevel(1)">N1<small>1,20 m · 1.080 kg</small></button>
-          <button class="lvl-btn" onclick="setLevel(2)">N2<small>2,50 m · 810 kg</small></button>
-          <button class="lvl-btn" onclick="setLevel(3)">N3<small>3,00 m · 720 kg</small></button>
-          <button class="lvl-btn lvl-danger" onclick="setLevel(4)">N4 ⚠<small>3,50 m · 630 kg</small></button>
+          <button class="lvl-btn" onclick="setLevel(0)">PISO<small>0,00 m · 1.600 kg</small></button>
+          <button class="lvl-btn" onclick="setLevel(1)">N1<small>1,60 m · 1.600 kg</small></button>
+          <button class="lvl-btn" onclick="setLevel(2)">N2<small>2,90 m · 1.600 kg</small></button>
+          <button class="lvl-btn" onclick="setLevel(3)">N3<small>4,00 m · 1.100 kg</small></button>
+          <button class="lvl-btn lvl-danger" onclick="setLevel(4)">N4 ⚠<small>5,00 m · 720 kg</small></button>
         </div>
       </div>
 
@@ -984,7 +1030,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
           </div>
           <div class="tele-big cap-card" id="cap-card">
             <div class="tb-label">CAPACIDADE</div>
-            <div class="tb-val" id="tel-cap-big" style="color:#44cc44">1.080</div>
+            <div class="tb-val" id="tel-cap-big" style="color:#44cc44">1.600</div>
             <div class="tb-unit">kg</div>
           </div>
         </div>
@@ -992,9 +1038,9 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
         <!-- Barra de capacidade visual -->
         <div class="cap-bar-wrap">
           <div class="cap-bar-label">
-            <span>630 kg</span>
-            <span id="cap-pct-label" style="color:#44cc44;font-weight:700">1.080 kg — Capacidade total</span>
-            <span>1.080 kg</span>
+            <span>600 kg</span>
+            <span id="cap-pct-label" style="color:#44cc44;font-weight:700">1.600 kg — Capacidade total</span>
+            <span>1.600 kg</span>
           </div>
           <div class="cap-bar-track">
             <div class="cap-bar-fill" id="cap-bar-fill" style="width:100%;background:#44cc44"></div>
@@ -1014,10 +1060,10 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
       <div class="pp-section">
         <div class="pp-title">Curva de Capacidade</div>
         <div class="cap-curve">
-          <div class="cc-row" id="cc-0"><div class="cc-bar" style="width:100%;background:#44cc44"></div><div class="cc-info"><span>0 – 1.000 mm</span><strong>1.080 kg</strong></div></div>
-          <div class="cc-row" id="cc-1"><div class="cc-bar" style="width:86%;background:#aacc22"></div><div class="cc-info"><span>1.000 – 2.000 mm</span><strong>1.080→900 kg</strong></div></div>
-          <div class="cc-row" id="cc-2"><div class="cc-bar" style="width:75%;background:#ff8833"></div><div class="cc-info"><span>2.000 – 3.000 mm</span><strong>900→720 kg</strong></div></div>
-          <div class="cc-row" id="cc-3"><div class="cc-bar" style="width:58%;background:#ff3333"></div><div class="cc-info"><span>3.000 – 3.500 mm ⚠</span><strong style="color:#ff4444">720→630 kg</strong></div></div>
+          <div class="cc-row" id="cc-0"><div class="cc-bar" style="width:100%;background:#44cc44"></div><div class="cc-info"><span>0 – 2.900 mm</span><strong>1.600 kg</strong></div></div>
+          <div class="cc-row" id="cc-1"><div class="cc-bar" style="width:81%;background:#aacc22"></div><div class="cc-info"><span>2.900 – 3.500 mm</span><strong>1.600→1.300 kg</strong></div></div>
+          <div class="cc-row" id="cc-2"><div class="cc-bar" style="width:69%;background:#ff8833"></div><div class="cc-info"><span>3.500 – 4.500 mm</span><strong>1.300→900 kg</strong></div></div>
+          <div class="cc-row" id="cc-3"><div class="cc-bar" style="width:38%;background:#ff3333"></div><div class="cc-info"><span>4.500 – 5.400 mm ⚠</span><strong style="color:#ff4444">900→600 kg</strong></div></div>
         </div>
       </div>
 
@@ -1039,8 +1085,8 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
           <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Piso nivelado e desempenado</span></div>
           <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Corredor mínimo <strong>2.800 mm</strong></span></div>
           <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Vão interno mín. <strong>1.100 mm</strong></span></div>
-          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. máxima: <strong>1.080 kg</strong> (até 1,0m)</span></div>
-          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. mínima: <strong>630 kg</strong> (a 3,5m)</span></div>
+          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. máxima: <strong>1.600 kg</strong> (até 2,9m · C.C. 600mm)</span></div>
+          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. mínima: <strong>600 kg</strong> (a 5,4m)</span></div>
         </div>
       </div>
 
@@ -1073,34 +1119,48 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
           <div class="ct-row ct-green">
             <div class="ct-bar-wrap"><div class="ct-bar" style="width:100%"></div></div>
             <div class="ct-data">
-              <span class="ct-h">0 – 1.000 mm</span>
-              <span class="ct-kg">1.080 kg</span>
+              <span class="ct-h">até 2.900 mm</span>
+              <span class="ct-kg">1.600 kg</span>
             </div>
           </div>
           <div class="ct-row ct-lime">
-            <div class="ct-bar-wrap"><div class="ct-bar" style="width:79%"></div></div>
+            <div class="ct-bar-wrap"><div class="ct-bar" style="width:81%"></div></div>
             <div class="ct-data">
-              <span class="ct-h">1.000 – 2.000 mm</span>
-              <span class="ct-kg">1.080→900 kg</span>
+              <span class="ct-h">3.500 mm</span>
+              <span class="ct-kg">1.300 kg</span>
             </div>
           </div>
           <div class="ct-row ct-orange">
-            <div class="ct-bar-wrap"><div class="ct-bar" style="width:63%"></div></div>
+            <div class="ct-bar-wrap"><div class="ct-bar" style="width:69%"></div></div>
             <div class="ct-data">
-              <span class="ct-h">2.000 – 3.000 mm</span>
-              <span class="ct-kg">900→720 kg</span>
+              <span class="ct-h">4.000 mm</span>
+              <span class="ct-kg">1.100 kg</span>
+            </div>
+          </div>
+          <div class="ct-row ct-orange">
+            <div class="ct-bar-wrap"><div class="ct-bar" style="width:56%"></div></div>
+            <div class="ct-data">
+              <span class="ct-h">4.500 mm</span>
+              <span class="ct-kg">900 kg</span>
             </div>
           </div>
           <div class="ct-row ct-red">
-            <div class="ct-bar-wrap"><div class="ct-bar" style="width:50%"></div></div>
+            <div class="ct-bar-wrap"><div class="ct-bar" style="width:47%"></div></div>
             <div class="ct-data">
-              <span class="ct-h">3.500 mm <span class="ct-badge">LIMITE</span></span>
-              <span class="ct-kg ct-red-txt">720→630 kg</span>
+              <span class="ct-h">4.900 mm</span>
+              <span class="ct-kg ct-red-txt">750 kg</span>
+            </div>
+          </div>
+          <div class="ct-row ct-red">
+            <div class="ct-bar-wrap"><div class="ct-bar" style="width:38%"></div></div>
+            <div class="ct-data">
+              <span class="ct-h">5.400 mm <span class="ct-badge">LIMITE</span></span>
+              <span class="ct-kg ct-red-txt">600 kg</span>
             </div>
           </div>
         </div>
         <div class="sv2-note">
-          Curva do fabricante — valores aproximados.<br>
+          Plaqueta oficial do fabricante — Centro de Carga 600 mm.<br>
           Nunca exceder a capacidade nominal por altura.
         </div>
       </div>
@@ -1155,8 +1215,8 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
         <div class="care-item care-critical">
           <div class="care-num">01</div>
           <div class="care-body">
-            <strong>Limite de 630 kg a 3,5 m</strong>
-            <p>A capacidade da paleteira reduz progressivamente com a altura. A 3,5 m (nível máximo), a capacidade cai para 630 kg. Inclua o peso do pallet (25 kg). Carga útil real: 605 kg.</p>
+            <strong>Limite de 600 kg a 5,4 m</strong>
+            <p>A capacidade da paleteira reduz progressivamente com a altura. Até 2,9 m o equipamento opera com 1.600 kg (capacidade total). A 5,4 m (altura máxima), a capacidade cai para 600 kg. Inclua o peso do pallet (~25 kg). Valores conforme plaqueta do fabricante — C.C. 600 mm.</p>
           </div>
         </div>
 
@@ -1793,7 +1853,7 @@ function animateTour(){
 ════════════════════════════════════════ */
 let palReady=false, palRenderer, palScene, palCamera;
 let palForkY=0, palTargetY=0, palSpeed=0.4, palLoop=true, palPhase=0, palTick=0;
-const PAL_LEVEL_H=[0,1.2,2.5,3.0,3.5]; // m: Piso,N1=1.2m,N2=2.5m,N3=3.0m,N4=3.5m(max)
+const PAL_LEVEL_H=[0,1.6,2.9,4.0,5.0]; // m: Piso, N1=1,6m (1600kg), N2=2,9m (1600kg), N3=4,0m (1100kg), N4=5,0m (~720kg ⚠)
 const PAL_SCALE=0.65; // scene scale
 let palPrevForkY=0;
 let palSph={t:0.3,p:0.82,r:10};
@@ -1876,7 +1936,7 @@ function initPaleteira(){
   }
 
   function applyRulerPct(pct){
-    const MAX_H = 3.5;
+    const MAX_H = 5.4;
     const hVal  = pct * MAX_H;
     // Mover a paleteira
     palForkY = hVal;
@@ -1892,12 +1952,12 @@ function initPaleteira(){
     const rbKg = document.getElementById('rb-kg');
     if(rbH) rbH.textContent = hVal.toFixed(2)+' m';
     if(rbKg){
+      // Usa diretamente a tabela oficial da plaqueta
+      const kg = getCapacity(hVal);
       let cLabel;
-      if(hVal>=3.5)      cLabel='600 kg ⚠ LIMITE';
-      else if(hVal>=3.0) cLabel=Math.round(600+(3.5-hVal)/0.5*150)+' kg';
-      else if(hVal>=2.5) cLabel=Math.round(750+(3.0-hVal)/0.5*200)+' kg';
-      else if(hVal>=1.6) cLabel=Math.round(950+(2.5-hVal)/0.9*250)+' kg';
-      else               cLabel='1.200 kg ✓';
+      if(hVal>=5.4)      cLabel=kg+' kg ⚠ LIMITE';
+      else if(hVal>=4.9) cLabel=kg+' kg ⚠';
+      else               cLabel=kg.toLocaleString('pt-BR')+' kg';
       rbKg.textContent = cLabel;
     }
     const ri = document.getElementById('ruler-indicator');
@@ -1906,6 +1966,8 @@ function initPaleteira(){
 
   // Mouse drag
   rulerTrack.addEventListener('mousedown', e=>{
+    // Se o clique foi numa marca (.ruler-mark), deixa o onclick dela cuidar — não inicia drag
+    if(e.target.closest('.ruler-mark')) return;
     rulerDragging = true;
     rulerManual   = true;
     if(palLoop) toggleLoop(); // pausa loop auto
@@ -1920,6 +1982,7 @@ function initPaleteira(){
 
   // Touch drag
   rulerTrack.addEventListener('touchstart', e=>{
+    if(e.target.closest('.ruler-mark')) return; // tap em marca → onclick cuida
     rulerDragging = true;
     rulerManual   = true;
     if(palLoop) toggleLoop();
@@ -1932,8 +1995,9 @@ function initPaleteira(){
   });
   window.addEventListener('touchend', ()=>{ rulerDragging=false; });
 
-  // Clique direto no track (sem drag)
+  // Clique direto no track (sem drag) — entre marcas, para valores intermediários
   rulerTrack.addEventListener('click', e=>{
+    if(e.target.closest('.ruler-mark')) return; // a marca já cuidou
     if(!rulerDragging){
       rulerManual = true;
       if(palLoop) toggleLoop();
@@ -2187,8 +2251,8 @@ function setLevel(lvl){
   palTargetY=PAL_LEVEL_H[lvl];
   document.querySelectorAll('.lvl-btn').forEach((b,i)=>b.classList.toggle('on',i===lvl));
   document.getElementById('tel-target').textContent=PAL_LEVEL_H[lvl].toFixed(2)+' m';
-  const loads=['1.080 kg','1.080 kg','810 kg','720 kg','630 kg ⚠'];
-  document.getElementById('tel-load').textContent=loads[lvl]||'800 kg';
+  const loads=['1.600 kg','1.600 kg','1.600 kg','1.100 kg','720 kg ⚠'];
+  document.getElementById('tel-load').textContent=loads[lvl]||'600 kg';
 }
 
 function toggleLoop(){
@@ -2199,36 +2263,54 @@ function toggleLoop(){
   }
 }
 
+// ── PULAR PARA ALTURA ESPECÍFICA AO CLICAR EM MARCA DA RÉGUA ──
+function rulerJumpTo(h){
+  if(palLoop) toggleLoop();            // pausa loop automático
+  palTargetY = h;                       // anima suavemente até a altura
+  // Feedback visual — marca ativa pulsa
+  document.querySelectorAll('.ruler-mark').forEach(m=>m.classList.remove('rm-hit'));
+  const sel = document.querySelector(`.ruler-mark[data-m="${h.toFixed(1)}"]`);
+  if(sel){
+    sel.classList.add('rm-hit');
+    setTimeout(()=>sel.classList.remove('rm-hit'), 600);
+  }
+  // Desselecionar os botões de nível que não correspondem
+  document.querySelectorAll('.lvl-btn').forEach((b,i)=>{
+    b.classList.toggle('on', Math.abs(PAL_LEVEL_H[i]-h)<0.01);
+  });
+}
 
-  // ── TABELA OFICIAL DE CAPACIDADE ──
+
+  // ── TABELA OFICIAL DE CAPACIDADE (plaqueta do equipamento — C.C. 600 mm) ──
   function getCapacity(h){
-    const table=[[0,1080],[0.5,1080],[1.0,1080],[1.5,990],[2.0,900],[2.5,810],[3.0,720],[3.5,630]];
-    if(h<=0) return 1080;
-    if(h>=3.5) return 630;
+    const table=[[0,1600],[1.6,1600],[2.5,1600],[2.9,1600],[3.5,1300],[4.0,1100],[4.5,900],[4.9,750],[5.4,600]];
+    if(h<=0) return 1600;
+    if(h>=5.4) return 600;
     for(let i=0;i<table.length-1;i++){
       if(h>=table[i][0] && h<=table[i+1][0]){
         const t=(h-table[i][0])/(table[i+1][0]-table[i][0]);
         return Math.round(table[i][1]+(table[i+1][1]-table[i][1])*t);
       }
     }
-    return 630;
+    return 600;
   }
   function getCapColor(h){
-    if(h<=1.0) return '#44cc44';
-    if(h<=2.0) return '#aacc22';
-    if(h<=3.0) return '#ff8833';
-    return '#ff3333';
+    if(h<=2.9) return '#44cc44';   // até 2,9 m → 1.600 kg (verde)
+    if(h<=3.5) return '#aacc22';   // 2,9–3,5 m → 1.600→1.300 kg (verde-amarelo)
+    if(h<=4.0) return '#ffcc33';   // 3,5–4,0 m → 1.300→1.100 kg (amarelo)
+    if(h<=4.5) return '#ff8833';   // 4,0–4,5 m → 1.100→900 kg (laranja)
+    return '#ff3333';              // 4,5–5,4 m → 900→600 kg (vermelho)
   }
   function getCapBarW(h){
-    // 1080=100%, 630=58%
+    // 1600=100%, 600=38%
     const kg=getCapacity(h);
-    return Math.round(58+(kg-630)/(1080-630)*42);
+    return Math.round(38+(kg-600)/(1600-600)*62);
   }
   function getCapText(h){
     const kg=getCapacity(h);
-    if(h>=3.5) return kg+' kg ⚠ LIMITE';
-    if(h>=3.0) return kg+' kg — Atenção';
-    if(h>=1.0) return kg+' kg';
+    if(h>=4.9) return kg+' kg ⚠ LIMITE';
+    if(h>=4.0) return kg+' kg — Atenção';
+    if(h>=2.9) return kg+' kg';
     return kg+' kg — Capacidade total';
   }
 
@@ -2278,7 +2360,7 @@ function animatePaleteira(){
   const vel=Math.abs(palForkY-palPrevForkY)*60;
   document.getElementById('hud-h').textContent=palForkY.toFixed(2);
   // ── UPDATE RÉGUA ──
-  const MAX_H=3.5;
+  const MAX_H=5.4;
   const pct=(palForkY/MAX_H)*100;
   const rulerInd=document.getElementById('ruler-indicator');
   const rbH=document.getElementById('rb-h');
@@ -2316,7 +2398,7 @@ function animatePaleteira(){
   if(velEl) velEl.textContent=vel.toFixed(2)+' m/s';
   // Highlight active curve row
   const ccRows=[document.getElementById('cc-0'),document.getElementById('cc-1'),document.getElementById('cc-2'),document.getElementById('cc-3')];
-  const ccIdx = palForkY>=3.0?3:palForkY>=2.5?2:palForkY>=1.6?1:0;
+  const ccIdx = palForkY>=4.5?3:palForkY>=3.5?2:palForkY>=2.9?1:0;
   ccRows.forEach((r,i)=>{ if(r) r.classList.toggle('active',i===ccIdx); });
   // Status for stat2
   const stat2=document.getElementById('tel-stat2');
