@@ -2,17 +2,53 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#000000">
+<meta name="format-detection" content="telephone=no">
 <title>Porta Pallet · Sistema de Armazenagem 5m</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{
+  box-sizing:border-box;margin:0;padding:0;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+}
+button, .lvl-btn, .tc-btn, .loop-btn, .dot, .sdot, .ruler-mark, .lvl-btn, .care-item, .pi, .spk-btn, #nav-arrow-l, #nav-arrow-r {
+  touch-action:manipulation;
+  -webkit-user-select:none;
+  user-select:none;
+}
+input, textarea{touch-action:auto}
 :root{
   --y:#F5C200;--yd:#C8990A;--blk:#000;--bg:#080808;--bg2:#101010;--bg3:#181818;
   --txt:#ffffff;--muted:#888;--dim:#333;--border:#1e1e1e;
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px);
+  --safe-r:env(safe-area-inset-right,0px);
 }
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--txt);cursor:default}
+html,body{
+  width:100%;height:100%;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);color:var(--txt);
+  cursor:default;
+  overscroll-behavior:none;
+  -webkit-overflow-scrolling:touch;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  position:fixed;
+  inset:0;
+}
+/* Scroll areas touch-friendly */
+.sv2-col, .care-card, #pal-panel, #tour-panel, #parts-list, #sp-box{
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
 /* ── SLIDES ── */
 #slides{width:100%;height:100%;position:relative;overflow:hidden}
 .slide{position:absolute;inset:0;opacity:0;pointer-events:none;
@@ -24,13 +60,15 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
 /* ── BARRA DE NAVEGAÇÃO INFERIOR ── */
 /* ════ BARRA NAVEGAÇÃO INFERIOR ════ */
 #nav-dots{
-  position:fixed;bottom:0;left:0;right:0;height:58px;
+  position:fixed;bottom:0;left:0;right:0;
+  height:calc(58px + var(--safe-b));
+  padding:0 calc(24px + var(--safe-r)) var(--safe-b) calc(24px + var(--safe-l));
   background:rgba(4,4,4,.97);
   border-top:1px solid rgba(245,194,0,.3);
   display:flex;align-items:center;justify-content:center;
   gap:16px;z-index:999;
   backdrop-filter:blur(10px);
-  padding:0 24px;
+  -webkit-backdrop-filter:blur(10px);
   box-shadow:0 -4px 24px rgba(0,0,0,.7);
 }
 .dot{
@@ -460,12 +498,16 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
 .care-eng .care-body strong strong{color:#fff}
 
 #credit-bar{
-  position:fixed;bottom:58px;left:0;right:0;height:22px;
+  position:fixed;
+  bottom:calc(58px + var(--safe-b));
+  left:0;right:0;height:22px;
   background:rgba(0,0,0,.85);
   border-top:1px solid rgba(245,194,0,.15);
   display:flex;align-items:center;justify-content:center;
   gap:12px;z-index:2000;pointer-events:none;
   backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  padding:0 calc(8px + var(--safe-r)) 0 calc(8px + var(--safe-l));
 }
 #credit-bar .cb-sep{width:1px;height:10px;background:rgba(245,194,0,.2)}
 #credit-bar .cb-left{font-size:8px;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase}
@@ -720,6 +762,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
 
 /* ════════════════════════════════════════════════
    RESPONSIVO — MOBILE (≤768px)
+   Testado em: iPhone SE/12/14/15, Samsung Galaxy S/A
 ════════════════════════════════════════════════ */
 @media (max-width: 768px){
 
@@ -730,22 +773,23 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
   .slide.exit{transform:translateY(-20px)}
 
   /* ── CABEÇALHO ── */
-  .s-header{height:44px;padding:0 12px;gap:8px}
-  .s-header-title{font-size:10px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55vw}
+  .s-header{height:48px;padding:0 calc(12px + var(--safe-r)) 0 calc(12px + var(--safe-l));gap:8px;padding-top:var(--safe-t)}
+  .s-header{height:calc(48px + var(--safe-t))}
+  .s-header-title{font-size:11px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60vw}
   .s-header-tag{display:none}
   .s-header-logo{height:26px}
 
   /* ══ SLIDE 0 — CAPA ══ */
   #cover-wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:100%}
   #cover-left{
-    padding:20px 16px 14px;
+    padding:calc(20px + var(--safe-t)) 16px 14px;
     flex-direction:row;justify-content:flex-start;gap:14px;
     height:auto;min-height:unset;
   }
   #lion-img{width:70px;height:70px;animation:none}
   #cover-tagline{display:none}
   .cover-slide-num{display:none}
-  #cover-right{padding:20px 20px 80px;gap:6px;justify-content:flex-start}
+  #cover-right{padding:20px 20px calc(100px + var(--safe-b));gap:6px;justify-content:flex-start}
   #cover-eyebrow{font-size:9px;margin-bottom:8px}
   #cover-title{font-size:clamp(36px,10vw,56px);letter-spacing:-2px}
   #cover-sub{font-size:12px;letter-spacing:.5px}
@@ -753,11 +797,12 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
   #cover-stats{gap:20px;margin-top:20px;flex-wrap:wrap}
   .cst-v{font-size:22px}
   .cst-l{font-size:8px}
-  #cover-cta{margin-top:24px;padding:12px 28px;font-size:10px}
+  #cover-cta{margin-top:24px;padding:14px 32px;font-size:11px;min-height:44px}
 
   /* ══ SLIDE 1 — TOUR 3D ══ */
   #tour-body{flex-direction:column}
-  #tour-scene{flex:1;min-height:52vh}
+  #tour-scene{flex:1;min-height:48vh;touch-action:none}
+  #tour-canvas{touch-action:none}
   #tour-panel{
     width:100%;height:auto;max-height:44vh;
     border-left:none;border-top:1px solid var(--border);
@@ -771,85 +816,118 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
   #sp-empty{height:auto;gap:4px}
   #sp-empty .sp-icon{font-size:22px}
   #sp-empty p{font-size:10px}
-  #sp-num{width:24px;height:24px;font-size:10px;margin-bottom:8px}
+  #sp-num{width:26px;height:26px;font-size:10px;margin-bottom:8px}
   #sp-name{font-size:13px}
-  #sp-desc{font-size:10px;line-height:1.6;margin-bottom:10px}
+  #sp-desc{font-size:11px;line-height:1.6;margin-bottom:10px}
   .spr-k{font-size:8px}
   .spr-v{font-size:10px}
   #parts-list{flex:1;overflow-y:auto;max-height:unset}
-  .pi{padding:7px 12px;gap:8px}
+  .pi{padding:10px 12px;gap:8px;min-height:40px}
   .pi-name{font-size:11px}
   .pi.sel .pi-name{font-size:12px}
-  #part-nav-bar{
-    position:sticky;bottom:0;
-    padding:8px 10px;gap:6px;
-  }
-  #nav-prev-btn, #nav-next-btn{padding:6px 10px;font-size:9px}
-  .nav-arrow{font-size:14px}
-  #nav-cur{font-size:16px}
-  #tour-hint{font-size:8px;top:8px;left:8px}
-  #tour-controls{gap:5px;bottom:10px;left:10px}
-  .tc-btn{padding:4px 8px;font-size:8px}
-  #ruler-wrap{display:none}
+  #part-nav-bar{position:sticky;bottom:0;padding:8px 10px;gap:6px}
+  #nav-prev-btn, #nav-next-btn{padding:8px 12px;font-size:10px;min-height:36px}
+  .nav-arrow{font-size:16px}
+  #nav-cur{font-size:18px}
+  #tour-hint{display:none}   /* esconde hints do desktop, tem instrução no header */
+  #tour-controls{gap:5px;bottom:10px;left:10px;flex-wrap:wrap;max-width:60vw}
+  .tc-btn{padding:7px 10px;font-size:9px;min-height:32px}
 
   /* ══ SLIDE 2 — PALETEIRA ══ */
   #pal-body{flex-direction:column}
-  #pal-scene{flex:1;min-height:50vh}
+  #pal-scene{flex:1;min-height:52vh;touch-action:none}
+  #pal-canvas{touch-action:none}
   #pal-panel{
-    width:100%;max-height:46vh;
+    width:100%;max-height:42vh;
     border-left:none;border-top:1px solid var(--border);
     overflow-y:auto;display:flex;flex-direction:column;
   }
-  #pal-hud{top:8px;left:8px;gap:4px}
-  .hud-card{padding:5px 10px}
-  .hud-lbl{font-size:7px}
-  .hud-val{font-size:16px}
+  #pal-hud{top:8px;left:8px;gap:4px;right:auto}
+  .hud-card{padding:6px 10px;min-width:0}
+  .hud-lbl{font-size:7px;letter-spacing:.5px}
+  .hud-val{font-size:15px}
   .hud-unit{font-size:7px}
-  .pp-section{padding:12px 14px 10px}
-  .pp-title{font-size:9px;margin-bottom:10px}
-  .level-grid{grid-template-columns:repeat(3,1fr);gap:5px}
-  .lvl-btn{font-size:11px;padding:8px 4px}
-  .lvl-btn small{font-size:7px}
+  .pp-section{padding:14px 14px 10px}
+  .pp-title{font-size:10px;margin-bottom:10px}
+  .level-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .lvl-btn{font-size:11px;padding:10px 4px;min-height:44px}
+  .lvl-btn small{font-size:7px;margin-top:3px;line-height:1.2}
   .tele-big{padding:10px 8px}
   .tb-val{font-size:22px}
   .tb-label{font-size:7px}
   .tb-unit{font-size:8px}
   .cc-info{font-size:10px}
   .cc-info strong{font-size:11px}
-  .req-item{font-size:10px;padding:6px 8px}
-  #ruler-wrap{right:6px;width:70px}
-  .ruler-mark .rm-kg{display:none} /* economiza espaço em tela pequena */
-  .ruler-mark .rm-label{font-size:7px}
-  .ruler-mark.rm-major .rm-label{font-size:8px}
-  .rcs-item{font-size:7px}
+  .req-item{font-size:10px;padding:7px 9px}
+  .loop-btn{min-height:42px;padding:10px;font-size:10px}
+
+  /* RÉGUA LATERAL — VERSÃO TOUCH */
+  /* OBS: a régua só existe no slide 2 (paleteira), deixar sempre visível nele */
+  #ruler-wrap{
+    right:6px;width:76px;
+    top:8px;bottom:8px;
+  }
+  #ruler-track{border-width:1.5px}
+  #ruler-cap-scale{width:22px;padding:6px 0}
+  .ruler-mark{
+    height:22px !important;               /* maior área de toque */
+    margin-bottom:-11px !important;
+  }
+  .ruler-mark::before{top:11px !important}
+  .ruler-mark .rm-kg{display:none}        /* economiza espaço */
+  .ruler-mark .rm-label{font-size:8px;left:4px;top:2px}
+  .ruler-mark.rm-major .rm-label{font-size:9px;font-weight:800}
+  .ruler-mark.rm-limit .rm-label{font-size:9px}
+  #ruler-indicator{font-size:10px}
+  #ruler-arrow{font-size:13px}
+  #ruler-bubble{padding:4px 8px}
+  #rb-h{font-size:11px}
+  #rb-kg{font-size:9px}
+  .rcs-item{font-size:8px}
+  .rcs-item span{font-size:6px}
+  #ruler-drag-hint{font-size:7px;bottom:2px}
 
   /* ══ SLIDE 3 — ESPECIFICAÇÕES ══ */
   #specs-v2{grid-template-columns:1fr;grid-template-rows:auto;overflow-y:auto;gap:0}
-  .sv2-col{padding:16px 16px 12px;gap:10px;overflow-y:visible}
+  .sv2-col{padding:16px 16px 12px;gap:12px;overflow-y:visible}
+  .sv2-col:not(:first-child){border-top:1px solid var(--border)}
   .sv2-title{font-size:10px;padding-bottom:8px;margin-bottom:2px}
-  .corridor-visual{height:110px}
-  .corr-dim{font-size:22px}
-  .dim-row{padding:7px 0;font-size:11px}
-  .dim-val{font-size:12px}
-  .mc-row{grid-template-columns:54px 1fr 52px;font-size:9px}
-  .mc-row .mc-kg{font-size:10px}
-  .care-card{padding:10px !important;gap:8px !important}
-  .care-item{grid-template-columns:24px 80px 1fr;gap:10px;padding:10px 12px}
-  .care-anim{width:80px;height:56px}
-  .care-body strong{font-size:12px}
-  .care-body p{font-size:11px;line-height:1.5}
-  .care-num{width:24px;height:24px;font-size:9px}
-  .sv2-note{font-size:8px}
+  .sv2-card{padding:14px}
+  .corridor-visual{height:120px}
+  .corr-dim{font-size:26px}
+  .corr-arrow{font-size:20px}
+  .corr-label{font-size:10px}
+  .dim-row{padding:9px 0;font-size:12px}
+  .dim-val{font-size:13px}
+  .mc-row{grid-template-columns:56px 1fr 56px;font-size:10px;gap:8px}
+  .mc-row .mc-kg{font-size:11px}
+  .mini-cap-title{font-size:9px}
+  .care-card{padding:12px !important;gap:10px !important}
+  .care-item{grid-template-columns:26px 88px 1fr;gap:10px;padding:12px 12px;align-items:center}
+  .care-anim{width:88px;height:60px}
+  .care-body strong{font-size:13px}
+  .care-body p{font-size:11.5px;line-height:1.55}
+  .care-num{width:26px;height:26px;font-size:10px}
+  .sv2-note{font-size:9px;line-height:1.5}
 
   /* ── BARRAS INFERIORES ── */
-  #nav-dots{height:50px;gap:12px;padding:0 16px}
-  #nav-arrow-l, #nav-arrow-r{width:36px;height:36px;font-size:20px}
-  .dot{width:9px;height:9px}
-  .dot.on{width:24px}
-  #slide-num{font-size:9px;bottom:15px;right:14px}
+  #nav-dots{
+    height:calc(54px + var(--safe-b));
+    gap:12px;
+    padding:0 calc(16px + var(--safe-r)) var(--safe-b) calc(16px + var(--safe-l));
+  }
+  #nav-arrow-l, #nav-arrow-r{width:42px;height:42px;font-size:20px;min-width:42px}
+  .dot{width:11px;height:11px}
+  .dot.on{width:26px}
+  #slide-num{
+    font-size:9px;
+    bottom:calc(16px + var(--safe-b));
+    right:calc(14px + var(--safe-r));
+  }
   #credit-bar{
-    padding:0 10px;gap:6px;height:20px;
-    bottom:50px;
+    padding:0 calc(10px + var(--safe-r)) 0 calc(10px + var(--safe-l));
+    gap:6px;height:20px;
+    bottom:calc(54px + var(--safe-b));
   }
   #credit-bar .cb-name{font-size:8px;letter-spacing:1px}
   #credit-bar .cb-title{display:none}
@@ -857,25 +935,61 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-seri
   #credit-bar .cb-sep{display:none}
 }
 
-/* ── EXTRA PEQUENO (≤480px) ── */
+/* ── EXTRA PEQUENO (≤480px) — iPhone SE / A-series entry ── */
 @media (max-width:480px){
   #cover-title{font-size:clamp(28px,9vw,44px)}
-  .level-grid{grid-template-columns:1fr 1fr;gap:5px}
-  #sp-box{width:45%}
-  .sv2-col:not(:first-child){border-top:1px solid var(--border)}
+  .level-grid{grid-template-columns:1fr 1fr;gap:6px}
+  #sp-box{width:46%}
+  .s-header-title{font-size:10px;max-width:55vw}
+
+  /* Régua mais estreita em telas muito pequenas */
+  #ruler-wrap{width:66px;right:4px}
+  #ruler-cap-scale{width:18px}
+  .ruler-mark .rm-label{font-size:7.5px}
+  .ruler-mark.rm-major .rm-label{font-size:8.5px}
+
+  /* HUD do pal-scene menor */
+  .hud-card{padding:5px 8px}
+  .hud-val{font-size:14px}
+
+  /* Slide 3 extra compact */
+  .care-item{grid-template-columns:22px 72px 1fr;gap:8px;padding:10px}
+  .care-anim{width:72px;height:54px}
+  .care-body strong{font-size:12px}
+  .care-body p{font-size:11px}
+  .corr-dim{font-size:22px}
+}
+
+/* ── EXTRA MICRO (≤360px) — Galaxy A entry ── */
+@media (max-width:360px){
+  .level-grid{grid-template-columns:1fr 1fr}
+  #ruler-wrap{width:58px}
+  #ruler-cap-scale{display:none}
+  .ruler-mark .rm-label{font-size:7px}
+  #rb-h{font-size:10px}
+  #rb-kg{font-size:8px}
+  #cover-stats{gap:14px}
+  .cst-v{font-size:20px}
 }
 
 /* ── LANDSCAPE MOBILE ── */
-@media (max-width:768px) and (orientation:landscape){
+@media (max-width:900px) and (orientation:landscape) and (max-height:500px){
+  .s-header{height:calc(40px + var(--safe-t))}
+  .s-header-title{font-size:10px}
   #cover-wrap{grid-template-columns:180px 1fr;grid-template-rows:1fr}
-  #cover-left{padding:16px;height:100%}
+  #cover-left{padding:16px calc(16px + var(--safe-l));height:100%;flex-direction:column}
   #lion-img{width:80px;height:80px}
-  #cover-right{padding:16px 20px 70px}
+  #cover-right{padding:16px 20px calc(70px + var(--safe-b))}
+  #cover-title{font-size:clamp(32px,7vw,48px)}
   #tour-body{flex-direction:row}
   #tour-panel{width:260px;max-height:unset;height:100%;flex-direction:column}
   #pal-body{flex-direction:row}
   #pal-panel{width:240px;max-height:unset;height:100%}
+  #pal-scene{min-height:unset}
   #specs-v2{grid-template-columns:38% 62%;grid-template-rows:1fr;overflow-y:auto}
+  .sv2-col:not(:first-child){border-top:none;border-left:1px solid var(--border)}
+  #nav-dots{height:calc(46px + var(--safe-b))}
+  #credit-bar{bottom:calc(46px + var(--safe-b))}
 }
 
 </style>
@@ -1463,6 +1577,19 @@ function goTo(idx){
   if(cur===1 && !tourReady) initTour();
   if(cur===2 && !palReady) initPaleteira();
   if(cur===3) startCounters();
+  // Force canvas resize after slide becomes visible (mobile fix)
+  requestAnimationFrame(()=>setTimeout(()=>window.dispatchEvent(new Event('resize')), 60));
+}
+
+// Ajusta canvas 3D quando rotaciona o celular
+window.addEventListener('orientationchange', ()=>{
+  setTimeout(()=>window.dispatchEvent(new Event('resize')), 300);
+});
+// iOS: também ajusta ao mudar o visual viewport (teclado, barra URL)
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize', ()=>{
+    window.dispatchEvent(new Event('resize'));
+  });
 }
 
 document.addEventListener('keydown', e=>{
@@ -1474,6 +1601,35 @@ document.addEventListener('keydown', e=>{
   if(e.key==='ArrowRight'||e.key==='ArrowDown') goTo(cur+1);
   if(e.key==='ArrowLeft'||e.key==='ArrowUp') goTo(cur-1);
 });
+
+/* ════════════════════════════════════════
+   SWIPE HORIZONTAL ENTRE SLIDES (mobile)
+   Ignora áreas interativas: canvases 3D, régua,
+   painéis scrolláveis (onde o toque tem outro uso).
+════════════════════════════════════════ */
+(function(){
+  let sx=0, sy=0, st=0, swTracking=false;
+  const IGNORE = '#tour-canvas, #pal-canvas, #ruler-wrap, #pal-panel, #tour-panel, .sv2-col, .care-card, #parts-list';
+  window.addEventListener('touchstart', e=>{
+    if(e.touches.length!==1) { swTracking=false; return; }
+    // se o toque começou sobre área interativa, não rastreia
+    if(e.target.closest(IGNORE)){ swTracking=false; return; }
+    sx=e.touches[0].clientX;
+    sy=e.touches[0].clientY;
+    st=Date.now();
+    swTracking=true;
+  }, {passive:true});
+  window.addEventListener('touchend', e=>{
+    if(!swTracking) return;
+    swTracking=false;
+    const t=e.changedTouches[0];
+    const dx=t.clientX-sx, dy=t.clientY-sy, dt=Date.now()-st;
+    // swipe horizontal rápido e dominante
+    if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.5 && dt<600){
+      if(dx<0) goTo(cur+1); else goTo(cur-1);
+    }
+  }, {passive:true});
+})();
 
 /* ════════════════════════════════════════
    PARTICLES (Cover)
@@ -1612,16 +1768,38 @@ function initTour(){
   },{passive:false});
   cv.addEventListener('click',e=>handleTourClick(e,cv,W,H));
 
-  // Touch
-  let pt=null;
-  cv.addEventListener('touchstart',e=>{pt={x:e.touches[0].clientX,y:e.touches[0].clientY};tourAutoRotate=false});
-  cv.addEventListener('touchmove',e=>{
-    if(!pt)return;
-    tourSph.t-=(e.touches[0].clientX-pt.x)*0.01;
-    tourSph.p=Math.max(0.15,Math.min(1.4,tourSph.p-(e.touches[0].clientY-pt.y)*0.01));
-    pt={x:e.touches[0].clientX,y:e.touches[0].clientY};
+  // Touch — iPhone / Samsung
+  let pt=null, tourPinchDist=0;
+  cv.addEventListener('touchstart',e=>{
+    if(e.touches.length===1){
+      pt={x:e.touches[0].clientX,y:e.touches[0].clientY};
+      tourAutoRotate=false;
+      tourPinchDist=0;
+    } else if(e.touches.length===2){
+      const dx=e.touches[0].clientX-e.touches[1].clientX;
+      const dy=e.touches[0].clientY-e.touches[1].clientY;
+      tourPinchDist=Math.hypot(dx,dy);
+      pt=null;
+    }
     e.preventDefault();
   },{passive:false});
+  cv.addEventListener('touchmove',e=>{
+    if(e.touches.length===1 && pt){
+      tourSph.t-=(e.touches[0].clientX-pt.x)*0.01;
+      tourSph.p=Math.max(0.15,Math.min(1.4,tourSph.p-(e.touches[0].clientY-pt.y)*0.01));
+      pt={x:e.touches[0].clientX,y:e.touches[0].clientY};
+    } else if(e.touches.length===2 && tourPinchDist){
+      const dx=e.touches[0].clientX-e.touches[1].clientX;
+      const dy=e.touches[0].clientY-e.touches[1].clientY;
+      const d=Math.hypot(dx,dy);
+      tourSph.r=Math.max(4,Math.min(20,tourSph.r-(d-tourPinchDist)*0.04));
+      tourPinchDist=d;
+    }
+    e.preventDefault();
+  },{passive:false});
+  cv.addEventListener('touchend',e=>{
+    if(e.touches.length===0){ pt=null; tourPinchDist=0; }
+  });
 
   window.addEventListener('resize',()=>{
     if(!tourReady)return;
@@ -2039,7 +2217,7 @@ function initPaleteira(){
   // Forklift group
   palForkGroup=buildForklift(palScene);
 
-  // Events
+  // Events — mouse
   cv.addEventListener('mousedown',e=>{palDrag=true;palPrevM={x:e.clientX,y:e.clientY}});
   window.addEventListener('mouseup',()=>palDrag=false);
   cv.addEventListener('mousemove',e=>{
@@ -2052,6 +2230,38 @@ function initPaleteira(){
     palSph.r=Math.max(5,Math.min(25,palSph.r+e.deltaY*0.02));
     e.preventDefault();
   },{passive:false});
+
+  // Events — touch (iPhone / Samsung)
+  let palTouch=null, palPinchDist=0;
+  cv.addEventListener('touchstart',e=>{
+    if(e.touches.length===1){
+      palTouch={x:e.touches[0].clientX,y:e.touches[0].clientY};
+      palPinchDist=0;
+    } else if(e.touches.length===2){
+      const dx=e.touches[0].clientX-e.touches[1].clientX;
+      const dy=e.touches[0].clientY-e.touches[1].clientY;
+      palPinchDist=Math.hypot(dx,dy);
+      palTouch=null;
+    }
+    e.preventDefault();
+  },{passive:false});
+  cv.addEventListener('touchmove',e=>{
+    if(e.touches.length===1 && palTouch){
+      palSph.t-=(e.touches[0].clientX-palTouch.x)*0.01;
+      palSph.p=Math.max(0.1,Math.min(1.4,palSph.p-(e.touches[0].clientY-palTouch.y)*0.01));
+      palTouch={x:e.touches[0].clientX,y:e.touches[0].clientY};
+    } else if(e.touches.length===2 && palPinchDist){
+      const dx=e.touches[0].clientX-e.touches[1].clientX;
+      const dy=e.touches[0].clientY-e.touches[1].clientY;
+      const d=Math.hypot(dx,dy);
+      palSph.r=Math.max(5,Math.min(25,palSph.r-(d-palPinchDist)*0.04));
+      palPinchDist=d;
+    }
+    e.preventDefault();
+  },{passive:false});
+  cv.addEventListener('touchend',e=>{
+    if(e.touches.length===0){ palTouch=null; palPinchDist=0; }
+  });
 
   window.addEventListener('resize',()=>{
     if(!palReady)return;
