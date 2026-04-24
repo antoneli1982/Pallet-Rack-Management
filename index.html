@@ -806,30 +806,53 @@ html,body{
   #tour-panel{
     width:100%;height:auto;max-height:44vh;
     border-left:none;border-top:1px solid var(--border);
-    flex-direction:row;overflow:hidden;
+    flex-direction:column;       /* volta ao empilhamento vertical */
+    overflow:hidden;
   }
   #sp-box{
-    width:50%;flex-shrink:0;padding:12px;
-    border-bottom:none;border-right:1px solid var(--border);
-    min-height:unset;overflow-y:auto;
+    width:100%;flex-shrink:0;
+    padding:12px 14px;
+    border-bottom:1px solid var(--border);
+    border-right:none;
+    min-height:unset;max-height:42vh;
+    overflow-y:auto;
   }
-  #sp-empty{height:auto;gap:4px}
+  /* Quando NÃO há peça selecionada, compact empty */
+  #sp-empty{height:auto;gap:4px;padding:8px 0}
   #sp-empty .sp-icon{font-size:22px}
-  #sp-empty p{font-size:10px}
-  #sp-num{width:26px;height:26px;font-size:10px;margin-bottom:8px}
-  #sp-name{font-size:13px}
-  #sp-desc{font-size:11px;line-height:1.6;margin-bottom:10px}
-  .spr-k{font-size:8px}
-  .spr-v{font-size:10px}
-  #parts-list{flex:1;overflow-y:auto;max-height:unset}
-  .pi{padding:10px 12px;gap:8px;min-height:40px}
-  .pi-name{font-size:11px}
-  .pi.sel .pi-name{font-size:12px}
-  #part-nav-bar{position:sticky;bottom:0;padding:8px 10px;gap:6px}
-  #nav-prev-btn, #nav-next-btn{padding:8px 12px;font-size:10px;min-height:36px}
+  #sp-empty p{font-size:11px;line-height:1.6}
+  /* Quando HÁ peça selecionada, destaque o nome */
+  #sp-num{width:28px;height:28px;font-size:11px;margin-bottom:8px}
+  #sp-name{font-size:16px;line-height:1.25;margin-bottom:6px}  /* NOME MAIOR */
+  #sp-desc{font-size:11.5px;line-height:1.55;margin-bottom:10px}
+  #sp-specs .spr{padding:4px 0}
+  .spr-k{font-size:8.5px}
+  .spr-v{font-size:10.5px}
+  /* parts-list abaixo do detalhe */
+  #parts-list{
+    flex:1;overflow-y:auto;
+    max-height:unset;
+    border-top:none;
+  }
+  .pi{padding:10px 14px;gap:10px;min-height:42px}
+  .pi-name{font-size:12px}
+  .pi.sel .pi-name{font-size:13px;font-weight:700}
+  .pi-num{width:18px;font-size:10px}
+  .pi-dot{width:10px;height:10px}
+  /* barra de navegação sticky no final */
+  #part-nav-bar{
+    position:sticky;bottom:0;
+    padding:8px 10px;gap:6px;
+    background:rgba(10,10,10,.95);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border-top:1px solid rgba(245,194,0,.15);
+    z-index:5;
+  }
+  #nav-prev-btn, #nav-next-btn{padding:8px 12px;font-size:10px;min-height:38px}
   .nav-arrow{font-size:16px}
-  #nav-cur{font-size:18px}
-  #tour-hint{display:none}   /* esconde hints do desktop, tem instrução no header */
+  #nav-cur{font-size:20px}
+  #tour-hint{display:none}
   #tour-controls{gap:5px;bottom:10px;left:10px;flex-wrap:wrap;max-width:60vw}
   .tc-btn{padding:7px 10px;font-size:9px;min-height:32px}
 
@@ -861,23 +884,42 @@ html,body{
   .req-item{font-size:10px;padding:7px 9px}
   .loop-btn{min-height:42px;padding:10px;font-size:10px}
 
-  /* RÉGUA LATERAL — VERSÃO TOUCH */
-  /* OBS: a régua só existe no slide 2 (paleteira), deixar sempre visível nele */
+  /* RÉGUA LATERAL — VERSÃO TOUCH
+     Layout compacto: altura em cima, peso embaixo,
+     ambos visíveis para o usuário consultar. */
   #ruler-wrap{
-    right:6px;width:76px;
+    right:6px;width:82px;
     top:8px;bottom:8px;
   }
   #ruler-track{border-width:1.5px}
-  #ruler-cap-scale{width:22px;padding:6px 0}
+  #ruler-cap-scale{width:20px;padding:6px 0}
   .ruler-mark{
-    height:22px !important;               /* maior área de toque */
-    margin-bottom:-11px !important;
+    height:26px !important;               /* área de toque maior para caber 2 linhas */
+    margin-bottom:-13px !important;
   }
-  .ruler-mark::before{top:11px !important}
-  .ruler-mark .rm-kg{display:none}        /* economiza espaço */
-  .ruler-mark .rm-label{font-size:8px;left:4px;top:2px}
-  .ruler-mark.rm-major .rm-label{font-size:9px;font-weight:800}
-  .ruler-mark.rm-limit .rm-label{font-size:9px}
+  .ruler-mark::before{top:13px !important}
+  /* Altura em cima da linha da marca */
+  .ruler-mark .rm-label{
+    display:block;position:absolute;
+    left:4px;top:1px;
+    font-size:8.5px;line-height:1;
+    font-weight:700;
+    color:rgba(245,194,0,.75);
+  }
+  .ruler-mark.rm-major .rm-label{font-size:9.5px;font-weight:800;color:rgba(245,194,0,.95)}
+  .ruler-mark.rm-limit .rm-label{font-size:9.5px;color:#ff6644;font-weight:900}
+  /* Peso embaixo da linha — VISÍVEL AGORA */
+  .ruler-mark .rm-kg{
+    display:block !important;
+    position:absolute;
+    right:4px;top:1px;
+    font-size:7.5px;line-height:1;
+    font-weight:600;
+    color:rgba(255,255,255,.55);
+    letter-spacing:.1px;
+  }
+  .ruler-mark.rm-major .rm-kg{color:rgba(255,255,255,.8);font-weight:700;font-size:8px}
+  .ruler-mark.rm-limit .rm-kg{color:#ff8866;font-weight:800;font-size:8px}
   #ruler-indicator{font-size:10px}
   #ruler-arrow{font-size:13px}
   #ruler-bubble{padding:4px 8px}
@@ -885,7 +927,7 @@ html,body{
   #rb-kg{font-size:9px}
   .rcs-item{font-size:8px}
   .rcs-item span{font-size:6px}
-  #ruler-drag-hint{font-size:7px;bottom:2px}
+  #ruler-drag-hint{font-size:6.5px;bottom:2px;letter-spacing:.5px}
 
   /* ══ SLIDE 3 — ESPECIFICAÇÕES ══ */
   #specs-v2{grid-template-columns:1fr;grid-template-rows:auto;overflow-y:auto;gap:0}
@@ -939,14 +981,16 @@ html,body{
 @media (max-width:480px){
   #cover-title{font-size:clamp(28px,9vw,44px)}
   .level-grid{grid-template-columns:1fr 1fr;gap:6px}
-  #sp-box{width:46%}
   .s-header-title{font-size:10px;max-width:55vw}
 
-  /* Régua mais estreita em telas muito pequenas */
-  #ruler-wrap{width:66px;right:4px}
+  /* Régua em telas pequenas: continua mostrando kg, só fontes menores */
+  #ruler-wrap{width:72px;right:4px}
   #ruler-cap-scale{width:18px}
-  .ruler-mark .rm-label{font-size:7.5px}
-  .ruler-mark.rm-major .rm-label{font-size:8.5px}
+  .ruler-mark .rm-label{font-size:8px}
+  .ruler-mark.rm-major .rm-label{font-size:9px}
+  .ruler-mark .rm-kg{font-size:7px}
+  .ruler-mark.rm-major .rm-kg{font-size:7.5px}
+  .ruler-mark.rm-limit .rm-kg{font-size:7.5px}
 
   /* HUD do pal-scene menor */
   .hud-card{padding:5px 8px}
@@ -958,18 +1002,26 @@ html,body{
   .care-body strong{font-size:12px}
   .care-body p{font-size:11px}
   .corr-dim{font-size:22px}
+
+  /* Painel do tour no iPhone SE */
+  #sp-name{font-size:15px}
+  #sp-desc{font-size:11px}
 }
 
 /* ── EXTRA MICRO (≤360px) — Galaxy A entry ── */
 @media (max-width:360px){
   .level-grid{grid-template-columns:1fr 1fr}
-  #ruler-wrap{width:58px}
-  #ruler-cap-scale{display:none}
-  .ruler-mark .rm-label{font-size:7px}
+  /* Régua ultra-compacta, mas AINDA mostrando kg */
+  #ruler-wrap{width:64px;right:3px}
+  #ruler-cap-scale{display:none}       /* escala lateral colorida some, track fica mais largo */
+  .ruler-mark .rm-label{font-size:7.5px;left:3px}
+  .ruler-mark .rm-kg{font-size:6.5px;right:3px}
+  .ruler-mark.rm-major .rm-kg{font-size:7px}
   #rb-h{font-size:10px}
   #rb-kg{font-size:8px}
   #cover-stats{gap:14px}
   .cst-v{font-size:20px}
+  #sp-name{font-size:14px}
 }
 
 /* ── LANDSCAPE MOBILE ── */
@@ -2085,6 +2137,15 @@ function selectPart(partId){
     <div class="spr"><span class="spr-k">Dimensão</span><span class="spr-v">${part.dim}</span></div>
     <div class="spr"><span class="spr-k">Capacidade</span><span class="spr-v">${part.cap}</span></div>
     <div class="spr"><span class="spr-k">Norma</span><span class="spr-v">${part.norm}</span></div>`;
+
+  // Mobile: rola o sp-box pro topo para mostrar o nome da peça
+  const spBox = document.getElementById('sp-box');
+  if(spBox){ spBox.scrollTop = 0; }
+  // E rola a lista para trazer o item selecionado à vista
+  const selLi = document.getElementById('pi-'+partId);
+  if(selLi && selLi.scrollIntoView){
+    selLi.scrollIntoView({block:'nearest', behavior:'smooth'});
+  }
 }
 
 // Limpa seleção (clique em área vazia do canvas)
