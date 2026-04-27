@@ -383,8 +383,8 @@ html,body{
 
 /* ════ RÉGUA LATERAL ════ */
 #ruler-wrap{
-  position:absolute;right:12px;top:10px;bottom:10px;
-  width:108px;display:flex;gap:0;pointer-events:all;z-index:50;cursor:ns-resize;
+  position:absolute;right:0;top:10px;bottom:10px;
+  width:165px;display:flex;gap:0;pointer-events:all;z-index:50;cursor:ns-resize;
 }
 #ruler-track{
   position:relative;flex:1;
@@ -436,22 +436,22 @@ html,body{
   100%{background:rgba(245,194,0,.22)}
 }
 .ruler-mark .rm-label{
-  position:absolute;left:5px;top:-2px;
-  font-size:8px;color:rgba(245,194,0,.55);
+  position:absolute;left:7px;top:-3px;
+  font-size:9.5px;color:rgba(245,194,0,.6);
   font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.3px;
   white-space:nowrap;pointer-events:none;
   transition:color .15s;
 }
-.ruler-mark.rm-major .rm-label{font-size:9px;color:rgba(245,194,0,.8);font-weight:700}
-.ruler-mark.rm-limit .rm-label{color:#ff6644;font-weight:900;font-size:9px}
+.ruler-mark.rm-major .rm-label{font-size:10.5px;color:rgba(245,194,0,.85);font-weight:700}
+.ruler-mark.rm-limit .rm-label{color:#ff6644;font-weight:900;font-size:10.5px}
 .ruler-mark:hover .rm-label{color:var(--y)}
 .ruler-mark .rm-kg{
-  position:absolute;right:5px;top:-1px;
-  font-size:7px;color:rgba(255,255,255,.35);
+  position:absolute;right:7px;top:-1px;
+  font-size:8.5px;color:rgba(255,255,255,.4);
   font-family:'Poppins',sans-serif;font-weight:600;
   pointer-events:none;letter-spacing:.2px;
 }
-.ruler-mark.rm-major .rm-kg{color:rgba(255,255,255,.55)}
+.ruler-mark.rm-major .rm-kg{color:rgba(255,255,255,.62);font-size:9px}
 .ruler-mark.rm-limit .rm-kg{color:#ff8866;font-weight:700}
 #ruler-indicator{
   position:absolute;left:0;right:0;
@@ -481,17 +481,17 @@ html,body{
   display:flex;flex-direction:column;
   justify-content:space-between;
   padding:8px 0;
-  width:34px;
+  width:42px;
   align-items:center;
 }
 .rcs-item{
-  font-size:8px;font-weight:900;
+  font-size:9px;font-weight:900;
   font-family:'Poppins',sans-serif;
   text-align:center;line-height:1;
   display:flex;flex-direction:column;align-items:center;gap:1px;
-  opacity:.7;
+  opacity:.8;
 }
-.rcs-item span{font-size:6px;font-weight:400;opacity:.7}
+.rcs-item span{font-size:7px;font-weight:400;opacity:.7}
 
 .care-eng{background:rgba(245,194,0,.06);border:1px solid rgba(245,194,0,.3)}
 .care-eng .care-body strong{color:var(--y)}
@@ -660,6 +660,181 @@ html,body{
 /* Bolha da régua */
 #rb-h{font-size:11px;font-weight:700;color:#000;font-family:'Poppins',sans-serif}
 #rb-kg{font-size:9px;font-weight:600;color:rgba(0,0,0,.65);font-family:'Poppins',sans-serif}
+
+/* Badge NR-11 abaixo da escala da régua */
+#ruler-nr-tag{
+  font-size:8px;font-weight:800;
+  color:rgba(245,194,0,.8);
+  letter-spacing:1.5px;
+  text-align:center;
+  padding:5px 2px 2px;
+  border-top:1px solid rgba(245,194,0,.2);
+  font-family:'Poppins',sans-serif;
+  line-height:1.4;
+}
+/* Citação normativa inline */
+.nr-cite{
+  font-size:7.5px;font-weight:700;
+  color:rgba(245,194,0,.65);
+  letter-spacing:.8px;
+  background:rgba(245,194,0,.07);
+  border:1px solid rgba(245,194,0,.2);
+  border-radius:3px;
+  padding:1px 5px;
+  margin-left:4px;
+  font-family:'Poppins',sans-serif;
+  white-space:nowrap;
+}
+
+/* ── LABEL PALETEIRA MANUAL (removido — balança no painel) ── */
+#manual-pal-label{ display:none }
+
+/* ── BALANÇA OVERLAY ── */
+/* ── BALANÇA DIGITAL — integrada no painel ── */
+#balanca-overlay{ display:none } /* removido — agora é pp-section */
+.bc-reading{
+  font-size:38px;font-weight:900;color:#2299FF;
+  text-align:center;line-height:1.1;
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 0 18px rgba(34,153,255,.4);
+  cursor:pointer;position:relative;
+  user-select:none;
+  transition:opacity .15s;
+  display:block;
+}
+.bc-reading:hover{opacity:.75}
+.bc-reading span{font-size:16px;font-weight:600;color:#5bb8ff;margin-left:3px}
+.bc-edit-hint{
+  font-size:12px;color:rgba(34,153,255,.4);
+  position:absolute;top:2px;right:0;
+  font-style:normal;pointer-events:none;
+}
+/* Input de edição do peso — dentro do painel */
+.bc-weight-input{
+  display:none;
+  width:100%;
+  background:rgba(34,153,255,.05);
+  border:none;
+  border-bottom:2px solid rgba(34,153,255,.6);
+  border-radius:4px 4px 0 0;
+  color:#2299FF;
+  font-size:36px;font-weight:900;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  outline:none;
+  padding:4px 0 6px;
+  font-variant-numeric:tabular-nums;
+  -moz-appearance:textfield;
+}
+.bc-weight-input::-webkit-inner-spin-button,
+.bc-weight-input::-webkit-outer-spin-button{-webkit-appearance:none}
+.bc-item{
+  font-size:8px;font-weight:700;color:rgba(34,153,255,.45);
+  letter-spacing:2px;text-align:center;
+  margin-top:3px;text-transform:uppercase;
+}
+.bc-divider{height:1px;background:rgba(34,153,255,.15);margin:7px 0}
+.bc-nr{
+  font-size:7.5px;color:rgba(255,120,60,.7);
+  letter-spacing:.5px;text-align:center;
+  font-weight:700;line-height:1.5;
+}
+.bc-lift-bar{margin-top:7px}
+.bc-lift-label{
+  font-size:7px;color:#2a4a6a;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:3px;
+}
+.bc-lift-track{
+  height:5px;background:rgba(34,153,255,.08);
+  border-radius:3px;overflow:hidden;
+  border:1px solid rgba(34,153,255,.15);
+}
+.bc-lift-fill{
+  height:100%;background:linear-gradient(90deg,#1155cc,#2299ff);
+  border-radius:3px;transition:width .1s linear;
+  box-shadow:0 0 6px rgba(34,153,255,.45);
+}
+
+/* Linha de nível na balança */
+.bc-level-row{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(34,153,255,.05);
+  border:1px solid rgba(34,153,255,.12);
+  border-radius:6px;padding:5px 8px;
+  margin-bottom:0;margin-top:6px;
+}
+.bc-level-dot{
+  width:11px;height:11px;border-radius:50%;
+  background:#44cc44;flex-shrink:0;
+  transition:background .3s;
+  box-shadow:0 0 7px rgba(68,204,68,.5);
+}
+.bc-level-info{display:flex;flex-direction:column;flex:1;gap:1px}
+.bc-level-name{
+  font-size:15px;font-weight:900;
+  color:#44cc44;letter-spacing:2px;
+  font-family:'Poppins',sans-serif;
+  line-height:1;transition:color .3s;
+}
+.bc-level-h{
+  font-size:9px;font-weight:600;
+  color:#555;letter-spacing:1px;
+  font-family:'Poppins',sans-serif;
+}
+.bc-level-badge{
+  font-size:7px;font-weight:800;
+  color:rgba(245,194,0,.7);letter-spacing:1px;
+  background:rgba(245,194,0,.08);
+  border:1px solid rgba(245,194,0,.2);
+  border-radius:3px;padding:2px 5px;
+  font-family:'Poppins',sans-serif;
+  flex-shrink:0;
+}
+
+/* ── TABELA ATÉ QUAL NÍVEL ── */
+.bc-lv-header{
+  font-size:7.5px;font-weight:700;letter-spacing:2px;
+  color:rgba(34,153,255,.55);text-transform:uppercase;
+  margin-bottom:4px;
+}
+.bc-lv-table{display:flex;flex-direction:column;gap:3px}
+.bc-lv-row{
+  display:flex;align-items:center;gap:6px;
+  padding:4px 7px;border-radius:5px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  transition:all .25s;
+}
+.bc-lv-ok{
+  background:rgba(34,204,68,.06);
+  border-color:rgba(34,204,68,.18);
+}
+.bc-lv-no{
+  background:rgba(255,40,40,.04);
+  border-color:rgba(255,40,40,.12);
+}
+.bc-lv-check{
+  font-size:10px;font-weight:900;width:12px;text-align:center;flex-shrink:0;
+}
+.bc-lv-ok .bc-lv-check{color:#44cc44}
+.bc-lv-no .bc-lv-check{color:#ff4444}
+.bc-lv-name{
+  font-size:10px;font-weight:800;letter-spacing:1.5px;
+  font-family:'Poppins',sans-serif;flex:1;
+}
+.bc-lv-ok .bc-lv-name{color:#7fd971}
+.bc-lv-no .bc-lv-name{color:#ff7777;opacity:.6}
+.bc-lv-cap{
+  font-size:8.5px;font-weight:600;color:#444;
+  font-variant-numeric:tabular-nums;
+}
+.bc-lv-ok .bc-lv-cap{color:#3a8a3a}
+.bc-lv-no .bc-lv-cap{color:#883333}
+.bc-lv-max{
+  font-size:9px;font-weight:900;color:#F5C200;
+  animation:maxPulse 1.2s ease-in-out infinite;flex-shrink:0;
+}
+@keyframes maxPulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* ════ PARTS LIST — FONTES GRANDES + HIGHLIGHT ════ */
 #tour-panel{font-family:'Poppins',sans-serif}
@@ -1218,7 +1393,7 @@ html,body{
           <div class="ruler-mark"          data-m="4.5" style="bottom:83.33%" onclick="rulerJumpTo(4.5)" title="Ir para 4,5 m"><span class="rm-label">4,5</span><span class="rm-kg">900 kg</span></div>
           <div class="ruler-mark rm-major" data-m="4.0" style="bottom:74.07%" onclick="rulerJumpTo(4.0)" title="Ir para 4,0 m"><span class="rm-label">4,0 m</span><span class="rm-kg">1.100 kg</span></div>
           <div class="ruler-mark"          data-m="3.5" style="bottom:64.81%" onclick="rulerJumpTo(3.5)" title="Ir para 3,5 m"><span class="rm-label">3,5</span><span class="rm-kg">1.300 kg</span></div>
-          <div class="ruler-mark rm-major" data-m="3.0" style="bottom:55.56%" onclick="rulerJumpTo(3.0)" title="Ir para 3,0 m"><span class="rm-label">3,0 m</span><span class="rm-kg">1.567 kg</span></div>
+          <div class="ruler-mark rm-major" data-m="3.0" style="bottom:55.56%" onclick="rulerJumpTo(3.0)" title="Ir para 3,0 m"><span class="rm-label">3,0 m</span><span class="rm-kg">1.550 kg</span></div>
           <div class="ruler-mark"          data-m="2.5" style="bottom:46.30%" onclick="rulerJumpTo(2.5)" title="Ir para 2,5 m"><span class="rm-label">2,5</span><span class="rm-kg">1.600 kg</span></div>
           <div class="ruler-mark rm-major" data-m="2.0" style="bottom:37.04%" onclick="rulerJumpTo(2.0)" title="Ir para 2,0 m"><span class="rm-label">2,0 m</span><span class="rm-kg">1.600 kg</span></div>
           <div class="ruler-mark"          data-m="1.5" style="bottom:27.78%" onclick="rulerJumpTo(1.5)" title="Ir para 1,5 m"><span class="rm-label">1,5</span><span class="rm-kg">1.600 kg</span></div>
@@ -1253,6 +1428,8 @@ html,body{
           <div class="rcs-item" style="color:#ffcc33">1.300<span>kg</span></div>
           <div class="rcs-item" style="color:#44cc44">1.600<span>kg</span></div>
         </div>
+        <!-- NR-11 badge -->
+        <div id="ruler-nr-tag">NR-11<br><span style="font-size:6px;opacity:.6;letter-spacing:.5px">SUBITEM 11.3.6</span></div>
       </div>
       <!-- ═══ FIM RÉGUA ═══ -->
 
@@ -1301,6 +1478,74 @@ html,body{
             oninput="palSpeed=parseFloat(this.value);document.getElementById('spd-val').textContent=parseFloat(this.value).toFixed(1)+'×'">
           <span class="sv" id="spd-val">0.4×</span>
         </div>
+      </div>
+
+      <!-- ── BALANÇA DIGITAL · PALETEIRA MANUAL ── -->
+      <div class="pp-section">
+        <div class="pp-title" style="color:#2299FF;border-bottom:1px solid rgba(34,153,255,.18);padding-bottom:10px;margin-bottom:12px">⚖ Balança Digital</div>
+
+        <!-- Peso editável -->
+        <div style="text-align:center;position:relative">
+          <div class="bc-reading" id="bc-val" onclick="startEditWeight()" title="Clique para editar o peso">
+            <span id="bc-num">500</span><span>kg</span>
+            <span class="bc-edit-hint">✎</span>
+          </div>
+          <input type="number" id="bc-weight-input" class="bc-weight-input"
+            value="500" min="1" max="99999"
+            onblur="finishEditWeight()"
+            onkeydown="if(event.key==='Enter'||event.key==='Escape')this.blur()">
+          <div class="bc-item">CARGA · PALETEIRA MANUAL</div>
+        </div>
+
+        <!-- Tabela: até qual nível pode colocar -->
+        <div class="bc-lv-header" style="margin-top:12px">ATÉ QUAL NÍVEL?</div>
+        <div class="bc-lv-table">
+          <div class="bc-lv-row bc-lv-ok" id="bc-lv-PISO">
+            <span class="bc-lv-check" id="bc-lk-PISO">✓</span>
+            <span class="bc-lv-name">PISO</span>
+            <span class="bc-lv-cap">1.600 kg</span>
+            <span class="bc-lv-max" id="bc-lv-max-PISO" style="display:none">◄</span>
+          </div>
+          <div class="bc-lv-row bc-lv-ok" id="bc-lv-N1">
+            <span class="bc-lv-check" id="bc-lk-N1">✓</span>
+            <span class="bc-lv-name">N1</span>
+            <span class="bc-lv-cap">1.600 kg</span>
+            <span class="bc-lv-max" id="bc-lv-max-N1" style="display:none">◄</span>
+          </div>
+          <div class="bc-lv-row bc-lv-ok" id="bc-lv-N2">
+            <span class="bc-lv-check" id="bc-lk-N2">✓</span>
+            <span class="bc-lv-name">N2</span>
+            <span class="bc-lv-cap">1.600 kg</span>
+            <span class="bc-lv-max" id="bc-lv-max-N2" style="display:none">◄</span>
+          </div>
+          <div class="bc-lv-row" id="bc-lv-N3">
+            <span class="bc-lv-check" id="bc-lk-N3">✓</span>
+            <span class="bc-lv-name">N3</span>
+            <span class="bc-lv-cap">1.100 kg</span>
+            <span class="bc-lv-max" id="bc-lv-max-N3" style="display:none">◄</span>
+          </div>
+          <div class="bc-lv-row" id="bc-lv-N4">
+            <span class="bc-lv-check" id="bc-lk-N4">✓</span>
+            <span class="bc-lv-name">N4</span>
+            <span class="bc-lv-cap">720 kg</span>
+            <span class="bc-lv-max" id="bc-lv-max-N4" style="display:none">◄</span>
+          </div>
+        </div>
+
+        <!-- Nível ativo elétrica + barra elevação -->
+        <div class="bc-level-row">
+          <div class="bc-level-dot" id="bc-level-dot"></div>
+          <div class="bc-level-info">
+            <div class="bc-level-name" id="bc-level-name">PISO</div>
+            <div class="bc-level-h" id="bc-level-h">0,00 m · elétrica</div>
+          </div>
+          <div class="bc-level-badge">NR-11</div>
+        </div>
+        <div class="bc-lift-bar">
+          <div class="bc-lift-label">Elevação manual · paleteira azul</div>
+          <div class="bc-lift-track"><div class="bc-lift-fill" id="bc-lift"></div></div>
+        </div>
+        <div style="font-size:7.5px;color:rgba(255,100,50,.65);text-align:center;margin-top:6px;font-weight:700;letter-spacing:.5px">⚠ NR-17 · limite 23 kg / operação manual</div>
       </div>
 
       <!-- ── TELEMETRIA ── -->
@@ -1365,14 +1610,15 @@ html,body{
 
       <!-- ── REQUISITOS ── -->
       <div class="pp-section">
-        <div class="pp-title">Requisitos de Operação</div>
+        <div class="pp-title">Requisitos de Operação <span class="nr-cite">NR-11</span></div>
         <div class="req-list">
-          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Guia de pallet <strong>obrigatório</strong></span></div>
-          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Piso nivelado e desempenado</span></div>
-          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Corredor mínimo <strong>2.800 mm</strong></span></div>
-          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Vão interno mín. <strong>1.100 mm</strong></span></div>
-          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. máxima: <strong>1.600 kg</strong> (até 2,9m · C.C. 600mm)</span></div>
-          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. mínima: <strong>600 kg</strong> (a 5,4m)</span></div>
+          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Guia de pallet <strong>obrigatório</strong> <span class="nr-cite">NR-11 · 11.4.1</span></span></div>
+          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Piso nivelado e desempenado <span class="nr-cite">NR-11 · 11.4</span></span></div>
+          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Corredor mínimo <strong>2.800 mm</strong> <span class="nr-cite">NR-11 · 11.4</span></span></div>
+          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Vão interno mín. <strong>1.100 mm</strong> <span class="nr-cite">NR-11 · 11.4</span></span></div>
+          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. máxima: <strong>1.600 kg</strong> (até 2,9m · C.C. 600mm) <span class="nr-cite">NR-11 · 11.3.6</span></span></div>
+          <div class="req-item req-ok"><span class="req-icon">✓</span><span>Cap. mínima: <strong>600 kg</strong> (a 5,4m) <span class="nr-cite">NR-11 · 11.3.6</span></span></div>
+          <div class="req-item req-warn"><span class="req-icon">⚠</span><span>Operador <strong>habilitado</strong> e autorizado <span class="nr-cite">NR-11 · 11.3.1</span></span></div>
         </div>
       </div>
 
@@ -1460,7 +1706,7 @@ html,body{
 
         <div class="sv2-note">
           Valores conforme plaqueta oficial do fabricante — Centro de Carga 600 mm.
-          Nunca exceder a capacidade nominal por altura.
+          Nunca exceder a capacidade nominal por altura. <strong style="color:rgba(245,194,0,.7)">NR-11, subitem 11.3.6</strong> — é terminantemente proibida a sobrecarga dos equipamentos de movimentação.
         </div>
       </div>
     </div>
@@ -1625,12 +1871,12 @@ html,body{
               <!-- check -->
               <path class="seal-check" d="M 50 41 L 57 48 L 71 34" fill="none" stroke="#F5C200" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               <!-- textos normativos -->
-              <text x="60" y="72" fill="#F5C200" font-size="7" font-family="Poppins" font-weight="700" text-anchor="middle" letter-spacing="1">NR-12 · NBR 15524</text>
+              <text x="60" y="72" fill="#F5C200" font-size="7" font-family="Poppins" font-weight="700" text-anchor="middle" letter-spacing="1">NR-11 · NR-12 · NBR 15524</text>
             </svg>
           </div>
           <div class="care-body">
             <strong style="color:#F5C200">Acompanhamento de Engenheiro de Produção</strong>
-            <p>Para análise de carga, produtividade e dimensionamento do sistema, é <strong style="color:#fff;display:inline">obrigatório</strong> o acompanhamento de um Engenheiro de Produção habilitado, conforme NR-12 e NBR 15524.</p>
+            <p>Para análise de carga, produtividade e dimensionamento do sistema, é <strong style="color:#fff;display:inline">obrigatório</strong> o acompanhamento de um Engenheiro de Produção habilitado, conforme <strong style="color:rgba(245,194,0,.8)">NR-11 (subitem 11.3.1 — habilitação do operador / responsável técnico)</strong>, <strong style="color:rgba(245,194,0,.8)">NR-12 (segurança em máquinas e equipamentos)</strong> e <strong style="color:rgba(245,194,0,.8)">NBR 15524 (estantes metálicas para armazenagem de paletes — dimensionamento estrutural)</strong>.</p>
           </div>
         </div>
 
@@ -2396,6 +2642,11 @@ function initPaleteira(){
   // Forklift group
   palForkGroup=buildForklift(palScene);
 
+  // Manual pallet jack with scale
+  buildManualPallet();
+  // Inicializar tabela de níveis da balança
+  updateBcLevels(manualWeight);
+
   // Events — mouse
   cv.addEventListener('mousedown',e=>{palDrag=true;palPrevM={x:e.clientX,y:e.clientY}});
   window.addEventListener('mouseup',()=>palDrag=false);
@@ -2539,6 +2790,53 @@ function initPaleteira(){
 
 let palForkGroup=null, palMastGroup=null, palForkMeshY=0;
 let palLoopTarget=2;
+let manualPalGrp=null, manualForkGrp=null;
+let manualForkLift=0, manualForkDir=1, manualForkTick=0;
+let manualWeight=500; // kg — editável pelo usuário
+
+// Capacidade por nível (tabela do fabricante)
+const BC_LEVELS=[
+  {id:'PISO',cap:1600},{id:'N1',cap:1600},
+  {id:'N2',cap:1600},{id:'N3',cap:1100},{id:'N4',cap:720}
+];
+
+function updateBcLevels(weight){
+  let maxId='';
+  BC_LEVELS.forEach(lv=>{
+    const ok=lv.cap>=weight;
+    if(ok) maxId=lv.id;
+    const row=document.getElementById('bc-lv-'+lv.id);
+    if(row){ row.className='bc-lv-row '+(ok?'bc-lv-ok':'bc-lv-no'); }
+    const chk=document.getElementById('bc-lk-'+lv.id);
+    if(chk) chk.textContent=ok?'✓':'✗';
+  });
+  // Mostrar seta no nível máximo atingível
+  BC_LEVELS.forEach(lv=>{
+    const mx=document.getElementById('bc-lv-max-'+lv.id);
+    if(mx) mx.style.display=(lv.id===maxId?'inline':'none');
+  });
+}
+
+function startEditWeight(){
+  const val=document.getElementById('bc-val');
+  const inp=document.getElementById('bc-weight-input');
+  if(!val||!inp) return;
+  val.style.display='none';
+  inp.value=manualWeight;
+  inp.style.display='block';
+  inp.focus(); inp.select();
+}
+function finishEditWeight(){
+  const val=document.getElementById('bc-val');
+  const inp=document.getElementById('bc-weight-input');
+  if(!val||!inp) return;
+  const v=parseInt(inp.value);
+  manualWeight=isNaN(v)?manualWeight:Math.max(1,Math.min(99999,v));
+  document.getElementById('bc-num').textContent=manualWeight.toLocaleString('pt-BR');
+  inp.style.display='none';
+  val.style.display='block';
+  updateBcLevels(manualWeight);
+}
 
 function buildPalRack(){
   const mat=(c,e=0x111111)=>new THREE.MeshStandardMaterial({color:c,emissive:e,roughness:0.55,metalness:0.3});
@@ -2774,6 +3072,114 @@ function buildForklift(scene){
 }
 
 
+/* ════════════════════════════════════════
+   PALETEIRA MANUAL + BALANÇA (500 kg berço)
+   Posição: corredor frontal do rack (z=-1.6)
+   Referência: NR-17 ergonomia / NR-11 movimentação
+════════════════════════════════════════ */
+function buildManualPallet(){
+  const M=(c,e=0x060606,r=0.5,m=0.3)=>
+    new THREE.MeshStandardMaterial({color:c,emissive:e,roughness:r,metalness:m});
+  const BLU=0x1A7FC1,BLD=0x0A3A5A,BLK=0x111111,GRY=0x777777,LGRY=0xCCCCCC,YEL=0xF5C200;
+
+  const grp=new THREE.Group();
+  palScene.add(grp);
+  // Posição: corredor do rack, em frente às longarinas N1
+  grp.position.set(1.2, 0, -1.5);
+  // Garfos apontam em +z (em direção ao rack em z=0)
+
+  /* ── CHASSIS ── */
+  const body=new THREE.Mesh(new THREE.BoxGeometry(0.48,0.1,0.58),M(BLU,BLD));
+  body.position.set(0,0.13,0); grp.add(body);
+
+  // Detalhe lateral (reforço)
+  [-0.22,0.22].forEach(bx=>{
+    const side=new THREE.Mesh(new THREE.BoxGeometry(0.04,0.14,0.52),M(0x0d5a8a,0x042840));
+    side.position.set(bx,0.14,0); grp.add(side);
+  });
+
+  /* ── RODA TRASEIRA (drive) ── */
+  const rw=new THREE.Mesh(new THREE.CylinderGeometry(0.075,0.075,0.26,12),M(BLK,0,0.9,0.1));
+  rw.rotation.z=Math.PI/2; rw.position.set(0,0.075,-0.22); grp.add(rw);
+  const rim=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.28,8),M(0x444444));
+  rim.rotation.z=Math.PI/2; rim.position.set(0,0.075,-0.22); grp.add(rim);
+
+  /* ── BOMBA HIDRÁULICA ── */
+  const pumpBase=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.045,0.22,8),M(LGRY,0x111111,0.3,0.7));
+  pumpBase.position.set(0,0.3,-0.1); grp.add(pumpBase);
+  const pumpCyl=new THREE.Mesh(new THREE.CylinderGeometry(0.025,0.03,0.16,8),M(0x888888));
+  pumpCyl.position.set(0,0.46,-0.1); grp.add(pumpCyl);
+
+  /* ── DISPLAY BALANÇA DIGITAL (3D) ── */
+  const dispBox=new THREE.Mesh(new THREE.BoxGeometry(0.32,0.15,0.05),M(0x0a0a0a,0x000000,0.8,0.15));
+  dispBox.position.set(0,0.24,-0.06); grp.add(dispBox);
+  // Tela vermelha (sobrepeso — acima do limite NR-17)
+  const dispScreen=new THREE.Mesh(new THREE.BoxGeometry(0.26,0.10,0.04),M(0xFF1100,0x660000,0.15,0.05));
+  dispScreen.material.transparent=true; dispScreen.material.opacity=0.88;
+  dispScreen.position.set(0,0.245,-0.04); grp.add(dispScreen);
+  // Glow point acima da tela
+  const dispGlow=new THREE.PointLight(0xFF2200,0.6,1.2);
+  dispGlow.position.set(0,0.28,0.1); grp.add(dispGlow);
+
+  /* ── GRUPO DO GARFO (eleva com a animação) ── */
+  const fkGrp=new THREE.Group();
+  grp.add(fkGrp);
+  manualForkGrp=fkGrp;
+
+  // Dois braços do garfo (aço cinza)
+  [-0.17,0.17].forEach(fx=>{
+    const arm=new THREE.Mesh(new THREE.BoxGeometry(0.065,0.042,1.18),M(GRY,0x111111,0.6,0.25));
+    arm.position.set(fx,0.1,0.59); fkGrp.add(arm);
+    // Rodinha frontal
+    const fw=new THREE.Mesh(new THREE.CylinderGeometry(0.052,0.052,0.052,10),M(BLK,0,0.9,0.1));
+    fw.rotation.z=Math.PI/2; fw.position.set(fx,0.052,1.14); fkGrp.add(fw);
+  });
+
+  /* ── BERÇO / LONGARINA NO GARFO (representação visual de 1 par) ── */
+  // Par de longarinas amarelas
+  [-0.15,0.15].forEach(bx=>{
+    const beam=new THREE.Mesh(new THREE.BoxGeometry(0.075,0.078,1.10),M(YEL,0x221100));
+    beam.position.set(bx,0.17,0.59); fkGrp.add(beam);
+  });
+  // Conectores encaixe (clips M12 — laranja)
+  [-0.42,0.42].forEach(zz=>{
+    const clip=new THREE.Mesh(new THREE.BoxGeometry(0.38,0.11,0.045),M(0xFF5500,0x220000));
+    clip.position.set(0,0.165,0.59+zz); fkGrp.add(clip);
+  });
+  // Montante lateral simulado (pedaço de coluna em cima do berço)
+  [-0.17,0.17].forEach(cx=>{
+    const col=new THREE.Mesh(new THREE.BoxGeometry(0.055,0.7,0.055),M(0xBBAA00,0x221100));
+    col.position.set(cx,0.5,0.56); fkGrp.add(col);
+    // Diagonal de reforço
+    const diag=new THREE.Mesh(new THREE.BoxGeometry(0.02,0.5,0.02),M(0x666633));
+    diag.rotation.z=cx>0?0.18:-0.18; diag.position.set(cx,0.45,0.56); fkGrp.add(diag);
+  });
+  // Plaqueta de capacidade (detalhe)
+  const plaque=new THREE.Mesh(new THREE.BoxGeometry(0.25,0.065,0.012),M(0xFFFFFF,0x888888,0.3,0.05));
+  plaque.position.set(0,0.62,0.33); fkGrp.add(plaque);
+
+  /* ── GUIDÃO (cabo de operação) ── */
+  const stem=new THREE.Mesh(new THREE.BoxGeometry(0.042,0.82,0.042),M(GRY,0x111111,0.4,0.5));
+  stem.rotation.z=0.19; stem.position.set(0,0.6,-0.28); grp.add(stem);
+  const hbar=new THREE.Mesh(new THREE.BoxGeometry(0.042,0.042,0.52),M(BLK));
+  hbar.position.set(0,1.02,-0.4); grp.add(hbar);
+  // Punhos em borracha
+  [-0.23,0.23].forEach(hz=>{
+    const grip=new THREE.Mesh(new THREE.CylinderGeometry(0.032,0.032,0.11,10),M(BLK,0,0.95,0));
+    grip.rotation.x=Math.PI/2; grip.position.set(0,1.02,-0.4+hz); grp.add(grip);
+  });
+  // Alavanca de bomba
+  const lever=new THREE.Mesh(new THREE.BoxGeometry(0.03,0.26,0.03),M(BLU,BLD));
+  lever.rotation.z=0.5; lever.position.set(0.1,0.95,-0.34); grp.add(lever);
+
+  /* ── SINALIZAÇÃO NO CHÃO (faixa amarela) ── */
+  const stripe=new THREE.Mesh(new THREE.PlaneGeometry(0.55,1.9),
+    new THREE.MeshStandardMaterial({color:0xFFDD00,emissive:0x222200,roughness:1,transparent:true,opacity:0.25}));
+  stripe.rotation.x=-Math.PI/2; stripe.position.set(0,0.003,0.4); grp.add(stripe);
+
+  manualPalGrp=grp;
+}
+
 function setLevel(lvl){
   if(palLoop) toggleLoop();
   palTargetY=PAL_LEVEL_H[lvl];
@@ -2876,6 +3282,17 @@ function animatePaleteira(){
   // Apply fork position
   if(palForkGroup) palForkGroup.position.y=palForkY;
 
+  // ── Animar paleteira manual (bombeio hidráulico — eleva berço 0→12 cm) ──
+  if(manualForkGrp){
+    manualForkTick += 0.012;
+    const raw = Math.sin(manualForkTick);
+    manualForkLift = 0.06 + 0.06 * raw;
+    manualForkGrp.position.y = manualForkLift;
+    const pct = (manualForkLift / 0.12) * 100;
+    const liftEl = document.getElementById('bc-lift');
+    if(liftEl) liftEl.style.width = pct.toFixed(1) + '%';
+  }
+
   // Camera
   const cx=2+palSph.r*Math.sin(palSph.p)*Math.sin(palSph.t);
   const cy=4+palSph.r*Math.cos(palSph.p);
@@ -2948,6 +3365,14 @@ function animatePaleteira(){
     if(palForkY>=PAL_LEVEL_H[i]-0.2) lvlLabel=lvlNames[i];
   }
   document.getElementById('hud-n').textContent=lvlLabel;
+
+  // ── UPDATE BALANÇA DIGITAL — nível (peso é livre/editável pelo usuário) ──
+  const bcLvlName=document.getElementById('bc-level-name');
+  if(bcLvlName){ bcLvlName.textContent=lvlLabel; bcLvlName.style.color=capColor; }
+  const bcLvlH=document.getElementById('bc-level-h');
+  if(bcLvlH) bcLvlH.textContent=palForkY.toFixed(2)+' m';
+  const bcDot=document.getElementById('bc-level-dot');
+  if(bcDot){ bcDot.style.background=capColor; bcDot.style.boxShadow='0 0 8px '+capColor+'88'; }
 
   const phases=['SUBINDO ↑','POSICIONADO ✓','DESCENDO ↓','AGUARDANDO…'];
   document.getElementById('pal-status').textContent=
